@@ -1,0 +1,738 @@
+Starting preprocessing of the model file ...
+Found 27 equation(s).
+Evaluating expressions...done
+Computing static model derivatives (order 1).
+Computing dynamic model derivatives (order 2).
+Processing outputs ...
+done
+Preprocessing completed.
+
+You did not declare endogenous variables after the estimation/calib_smoother command.
+
+Initial value of the log posterior (or likelihood): -1069.0804
+ 
+ Iteration   Func-count     min f(x)         Procedure
+     0            1          1069.08         
+     1           35          1069.08         initial simplex
+     2           37          1069.08         contract outside
+     3           39          1069.08         contract inside
+     4           40          1069.08         reflect
+     5           41          1069.08         reflect
+     6           42          1069.08         reflect
+     7           44          1069.08         contract inside
+     8           46          1069.08         contract inside
+     9           48          1069.08         contract inside
+    10           50          1069.08         contract inside
+    11           52          1069.08         contract inside
+    12           53          1069.08         reflect
+    13           55          1069.08         contract inside
+    14           57          1069.08         contract inside
+    15           59          1069.08         contract inside
+    16           61          1069.08         contract inside
+    17           63          1069.08         contract inside
+    18           65          1069.08         contract inside
+    19           67          1069.08         contract inside
+    20           69          1069.08         contract inside
+    21           71          1069.08         contract inside
+    22           73          1069.08         contract inside
+    23           75          1069.08         contract inside
+    24           77          1069.08         contract inside
+    25           79          1069.08         contract outside
+    26           81          1069.08         contract inside
+    27           83          1069.08         contract inside
+    28           84          1069.08         reflect
+    29           86          1069.08         contract inside
+    30           87          1069.08         reflect
+    31           89          1069.08         contract inside
+    32           91          1069.08         contract inside
+    33           92          1069.08         reflect
+    34           94          1069.08         contract inside
+    35           96          1069.08         contract inside
+    36           98          1069.08         contract inside
+    37          100          1069.08         contract inside
+    38          102          1069.08         contract inside
+    39          104          1069.08         contract inside
+    40          106          1069.08         contract inside
+    41          108          1069.08         contract inside
+    42          110          1069.08         contract inside
+    43          112          1069.08         contract inside
+    44          114          1069.08         contract outside
+    45          115          1069.08         reflect
+    46          117          1069.08         contract inside
+    47          119          1069.08         contract inside
+    48          121          1069.08         contract outside
+    49          123          1069.08         contract inside
+    50          124          1069.08         reflect
+    51          126          1069.08         contract outside
+    52          128          1069.08         contract inside
+    53          129          1069.08         reflect
+    54          131          1069.08         contract inside
+    55          133          1069.08         contract inside
+    56          135          1069.08         contract inside
+    57          137          1069.08         contract inside
+    58          138          1069.08         reflect
+    59          140          1069.08         contract inside
+    60          141          1069.08         reflect
+    61          142          1069.08         reflect
+    62          144          1069.08         contract inside
+    63          146          1069.08         contract inside
+    64          147          1069.08         reflect
+    65          149          1069.08         contract inside
+    66          151          1069.08         contract inside
+    67          153          1069.08         contract inside
+    68          155          1069.08         contract inside
+    69          157          1069.08         contract inside
+    70          159          1069.08         contract outside
+    71          161          1069.08         contract inside
+    72          163          1069.08         contract inside
+    73          164          1069.08         reflect
+    74          166          1069.08         contract inside
+    75          168          1069.08         contract inside
+    76          170          1069.08         contract inside
+    77          172          1069.08         contract inside
+    78          174          1069.08         contract outside
+    79          176          1069.08         contract outside
+    80          178          1069.08         contract inside
+    81          180          1069.08         contract inside
+    82          182          1069.08         contract outside
+    83          183          1069.08         reflect
+    84          185          1069.08         contract inside
+    85          187          1069.08         contract inside
+    86          188          1069.08         reflect
+    87          189          1069.08         reflect
+    88          191          1069.08         contract inside
+    89          193          1069.08         contract inside
+    90          195          1069.08         contract inside
+    91          196          1069.08         reflect
+    92          198          1069.08         contract outside
+    93          200          1069.08         contract inside
+    94          202          1069.08         contract inside
+    95          204          1069.08         contract inside
+    96          206          1069.08         contract inside
+    97          208          1069.08         contract inside
+    98          209          1069.08         reflect
+    99          210          1069.08         reflect
+   100          212          1069.08         contract inside
+   101          213          1069.08         reflect
+   102          214          1069.08         reflect
+   103          215          1069.08         reflect
+   104          217          1069.08         contract inside
+   105          219          1069.08         contract inside
+   106          221          1069.08         contract inside
+   107          223          1069.08         contract inside
+   108          225          1069.08         contract inside
+   109          227          1069.08         contract outside
+   110          228          1069.08         reflect
+   111          230          1069.08         contract inside
+   112          232          1069.08         contract inside
+   113          234          1069.08         contract inside
+   114          236          1069.08         contract inside
+   115          238          1069.08         contract inside
+   116          239          1069.08         reflect
+   117          241          1069.08         contract inside
+   118          242          1069.08         reflect
+   119          244          1069.08         contract inside
+   120          245          1069.08         reflect
+   121          247          1069.08         contract inside
+   122          249          1069.08         contract inside
+   123          250          1069.08         reflect
+   124          252          1069.08         contract inside
+   125          254          1069.08         contract inside
+   126          256          1069.08         contract inside
+   127          258          1069.08         contract inside
+   128          260          1069.08         contract inside
+   129          262          1069.08         contract inside
+   130          263          1069.08         reflect
+   131          264          1069.08         reflect
+   132          265          1069.08         reflect
+   133          266          1069.08         reflect
+   134          267          1069.08         reflect
+   135          269          1069.08         contract inside
+   136          271          1069.08         contract inside
+   137          273          1069.08         contract inside
+   138          275          1069.08         contract inside
+   139          276          1069.08         reflect
+   140          277          1069.08         reflect
+   141          279          1069.08         contract outside
+   142          281          1069.08         contract inside
+   143          283          1069.08         contract outside
+   144          284          1069.08         reflect
+   145          286          1069.08         contract inside
+   146          288          1069.08         contract inside
+   147          289          1069.08         reflect
+   148          290          1069.08         reflect
+   149          292          1069.08         contract inside
+   150          294          1069.08         contract inside
+   151          296          1069.08         contract inside
+   152          298          1069.08         contract inside
+   153          300          1069.08         contract inside
+   154          302          1069.08         contract inside
+   155          303          1069.08         reflect
+   156          305          1069.08         contract inside
+   157          307          1069.08         contract inside
+   158          309          1069.08         contract inside
+   159          311          1069.08         contract inside
+   160          313          1069.08         contract inside
+   161          314          1069.08         reflect
+   162          316          1069.08         contract inside
+   163          318          1069.08         contract inside
+   164          319          1069.08         reflect
+   165          320          1069.08         reflect
+   166          322          1069.08         contract inside
+   167          324          1069.08         contract inside
+   168          326          1069.08         contract inside
+   169          327          1069.08         reflect
+   170          328          1069.08         reflect
+   171          330          1069.08         contract inside
+   172          331          1069.08         reflect
+   173          333          1069.08         contract inside
+   174          335          1069.08         contract inside
+   175          337          1069.08         contract inside
+   176          339          1069.08         contract inside
+   177          340          1069.08         reflect
+   178          342          1069.08         contract inside
+   179          344          1069.08         contract inside
+   180          346          1069.08         contract inside
+   181          348          1069.08         contract inside
+   182          350          1069.08         contract inside
+   183          351          1069.08         reflect
+   184          352          1069.08         reflect
+   185          354          1069.08         contract outside
+   186          356          1069.08         contract inside
+   187          358          1069.08         contract inside
+   188          359          1069.08         reflect
+   189          361          1069.08         contract inside
+   190          363          1069.08         contract inside
+   191          365          1069.08         contract inside
+   192          367          1069.08         contract inside
+   193          369          1069.08         contract inside
+   194          371          1069.08         contract inside
+   195          373          1069.08         contract inside
+   196          375          1069.08         contract inside
+   197          376          1069.08         reflect
+   198          377          1069.08         reflect
+   199          379          1069.08         contract inside
+   200          380          1069.08         reflect
+   201          381          1069.08         reflect
+   202          382          1069.08         reflect
+   203          383          1069.08         reflect
+   204          385          1069.08         contract inside
+   205          386          1069.08         reflect
+   206          387          1069.08         reflect
+   207          389          1069.08         contract outside
+   208          391          1069.08         contract inside
+   209          392          1069.08         reflect
+   210          394          1069.08         contract inside
+   211          396          1069.08         contract inside
+   212          398          1069.08         contract inside
+   213          400          1069.08         contract inside
+   214          402          1069.08         contract inside
+   215          404          1069.08         contract inside
+   216          405          1069.08         reflect
+   217          407          1069.08         contract inside
+   218          409          1069.08         contract inside
+   219          410          1069.08         reflect
+   220          412          1069.08         contract inside
+   221          413          1069.08         reflect
+   222          415          1069.08         contract inside
+   223          417          1069.08         contract inside
+   224          419          1069.08         contract inside
+   225          420          1069.08         reflect
+   226          422          1069.08         contract inside
+   227          424          1069.08         contract outside
+   228          425          1069.08         reflect
+   229          427          1069.08         contract outside
+   230          429          1069.08         contract inside
+   231          431          1069.08         contract inside
+   232          432          1069.08         reflect
+   233          433          1069.08         reflect
+   234          435          1069.08         contract inside
+   235          436          1069.08         reflect
+   236          438          1069.08         contract inside
+   237          439          1069.08         reflect
+   238          440          1069.08         reflect
+   239          441          1069.08         reflect
+   240          442          1069.08         reflect
+   241          443          1069.08         reflect
+   242          444          1069.08         reflect
+   243          445          1069.08         reflect
+   244          447          1069.08         contract inside
+   245          448          1069.08         reflect
+   246          449          1069.08         reflect
+   247          451          1069.08         contract inside
+   248          453          1069.08         contract outside
+   249          455          1069.08         contract inside
+   250          456          1069.08         reflect
+   251          457          1069.08         reflect
+   252          458          1069.08         reflect
+   253          459          1069.08         reflect
+   254          460          1069.08         reflect
+   255          461          1069.08         reflect
+   256          462          1069.08         reflect
+   257          464          1069.08         contract inside
+   258          465          1069.08         reflect
+   259          467          1069.08         contract inside
+   260          469          1069.08         contract outside
+   261          471          1069.08         contract inside
+   262          473          1069.08         contract inside
+   263          474          1069.08         reflect
+   264          475          1069.08         reflect
+   265          477          1069.08         contract inside
+   266          478          1069.08         reflect
+   267          479          1069.08         reflect
+   268          481          1069.08         contract inside
+   269          482          1069.08         reflect
+   270          483          1069.08         reflect
+   271          484          1069.08         reflect
+   272          486          1069.08         contract inside
+   273          487          1069.08         reflect
+   274          488          1069.08         reflect
+   275          490          1069.08         contract inside
+   276          492          1069.08         contract inside
+   277          494          1069.08         contract inside
+   278          495          1069.08         reflect
+   279          496          1069.08         reflect
+   280          497          1069.08         reflect
+   281          498          1069.08         reflect
+   282          500          1069.08         contract outside
+   283          501          1069.08         reflect
+   284          502          1069.08         reflect
+   285          503          1069.08         reflect
+   286          504          1069.08         reflect
+   287          505          1069.08         reflect
+   288          506          1069.08         reflect
+   289          508          1069.08         contract inside
+   290          510          1069.08         contract inside
+   291          511          1069.08         reflect
+   292          512          1069.08         reflect
+   293          514          1069.08         contract outside
+   294          515          1069.08         reflect
+   295          516          1069.08         reflect
+   296          518          1069.08         contract inside
+   297          519          1069.08         reflect
+   298          520          1069.08         reflect
+   299          521          1069.08         reflect
+   300          522          1069.08         reflect
+   301          523          1069.08         reflect
+   302          524          1069.08         reflect
+   303          526          1069.08         contract inside
+   304          527          1069.08         reflect
+   305          528          1069.08         reflect
+   306          529          1069.08         reflect
+   307          530          1069.08         reflect
+   308          531          1069.08         reflect
+   309          532          1069.08         reflect
+   310          533          1069.08         reflect
+   311          534          1069.08         reflect
+   312          535          1069.08         reflect
+   313          536          1069.08         reflect
+   314          537          1069.08         reflect
+   315          538          1069.08         reflect
+   316          539          1069.08         reflect
+   317          540          1069.08         reflect
+   318          541          1069.08         reflect
+   319          542          1069.08         reflect
+   320          543          1069.08         reflect
+   321          544          1069.08         reflect
+   322          545          1069.08         reflect
+   323          546          1069.08         reflect
+   324          547          1069.08         reflect
+   325          548          1069.08         reflect
+   326          549          1069.08         reflect
+   327          550          1069.08         reflect
+   328          551          1069.08         reflect
+   329          552          1069.08         reflect
+   330          553          1069.08         reflect
+   331          554          1069.08         reflect
+   332          555          1069.08         reflect
+   333          556          1069.08         reflect
+   334          557          1069.08         reflect
+   335          558          1069.08         reflect
+   336          559          1069.08         reflect
+   337          560          1069.08         reflect
+   338          561          1069.08         reflect
+   339          562          1069.08         reflect
+   340          563          1069.08         reflect
+   341          564          1069.08         reflect
+   342          565          1069.08         reflect
+   343          566          1069.08         reflect
+   344          567          1069.08         reflect
+   345          569          1069.08         contract inside
+   346          570          1069.08         reflect
+   347          571          1069.08         reflect
+   348          572          1069.08         reflect
+   349          574          1069.08         contract inside
+   350          576          1069.08         contract inside
+   351          577          1069.08         reflect
+   352          579          1069.08         contract inside
+   353          580          1069.08         reflect
+   354          581          1069.08         reflect
+   355          582          1069.08         reflect
+   356          584          1069.08         contract inside
+   357          585          1069.08         reflect
+   358          586          1069.08         reflect
+   359          587          1069.08         reflect
+   360          588          1069.08         reflect
+   361          589          1069.08         reflect
+   362          590          1069.08         reflect
+   363          591          1069.08         reflect
+   364          592          1069.08         reflect
+   365          593          1069.08         reflect
+   366          594          1069.08         reflect
+   367          596          1069.08         contract inside
+   368          597          1069.08         reflect
+   369          599          1069.08         contract inside
+   370          600          1069.08         reflect
+   371          602          1069.08         contract inside
+   372          604          1069.08         contract inside
+   373          605          1069.08         reflect
+   374          606          1069.08         reflect
+   375          608          1069.08         contract inside
+   376          610          1069.08         contract inside
+   377          612          1069.08         contract inside
+   378          613          1069.08         reflect
+   379          615          1069.08         contract inside
+   380          616          1069.08         reflect
+   381          617          1069.08         reflect
+   382          619          1069.08         contract inside
+   383          621          1069.08         contract inside
+   384          622          1069.08         reflect
+   385          623          1069.08         reflect
+   386          624          1069.08         reflect
+   387          625          1069.08         reflect
+   388          627          1069.08         contract inside
+   389          629          1069.08         contract inside
+   390          631          1069.08         contract inside
+   391          633          1069.08         contract inside
+   392          634          1069.08         reflect
+   393          635          1069.08         reflect
+   394          637          1069.08         contract inside
+   395          639          1069.08         contract inside
+   396          640          1069.08         reflect
+   397          642          1069.08         contract inside
+   398          643          1069.08         reflect
+   399          644          1069.08         reflect
+   400          646          1069.08         contract inside
+   401          647          1069.08         reflect
+   402          648          1069.08         reflect
+   403          649          1069.08         reflect
+   404          650          1069.08         reflect
+   405          651          1069.08         reflect
+   406          652          1069.08         reflect
+   407          653          1069.08         reflect
+   408          655          1069.08         contract inside
+   409          657          1069.08         contract inside
+   410          659          1069.08         contract inside
+   411          660          1069.08         reflect
+   412          661          1069.08         reflect
+   413          662          1069.08         reflect
+   414          663          1069.08         reflect
+   415          665          1069.08         contract inside
+   416          667          1069.08         contract inside
+   417          669          1069.08         contract inside
+   418          671          1069.08         contract inside
+   419          673          1069.08         contract inside
+   420          675          1069.08         contract inside
+   421          676          1069.08         reflect
+   422          678          1069.08         contract inside
+   423          679          1069.08         reflect
+   424          680          1069.08         reflect
+   425          681          1069.08         reflect
+   426          682          1069.08         reflect
+   427          683          1069.08         reflect
+   428          684          1069.08         reflect
+   429          685          1069.08         reflect
+   430          687          1069.08         contract inside
+   431          688          1069.08         reflect
+   432          690          1069.08         contract inside
+   433          691          1069.08         reflect
+   434          693          1069.08         contract inside
+   435          694          1069.08         reflect
+   436          696          1069.08         contract inside
+   437          697          1069.08         reflect
+   438          698          1069.08         reflect
+   439          699          1069.08         reflect
+   440          701          1069.08         contract inside
+   441          703          1069.08         contract inside
+   442          705          1069.08         contract inside
+   443          707          1069.08         contract outside
+   444          708          1069.08         reflect
+   445          709          1069.08         reflect
+   446          710          1069.08         reflect
+   447          711          1069.08         reflect
+   448          712          1069.08         reflect
+   449          713          1069.08         reflect
+   450          715          1069.08         contract inside
+   451          717          1069.08         contract inside
+   452          718          1069.08         reflect
+   453          720          1069.08         contract inside
+   454          722          1069.08         contract inside
+   455          724          1069.08         contract inside
+   456          726          1069.08         contract inside
+   457          728          1069.08         contract inside
+   458          730          1069.08         contract inside
+   459          732          1069.08         contract inside
+   460          733          1069.08         reflect
+   461          734          1069.08         reflect
+   462          735          1069.08         reflect
+   463          736          1069.08         reflect
+   464          738          1069.08         contract outside
+   465          739          1069.08         reflect
+   466          740          1069.08         reflect
+   467          741          1069.08         reflect
+   468          742          1069.08         reflect
+   469          743          1069.08         reflect
+   470          744          1069.08         reflect
+   471          745          1069.08         reflect
+   472          746          1069.08         reflect
+   473          747          1069.08         reflect
+   474          748          1069.08         reflect
+   475          750          1069.08         contract inside
+   476          751          1069.08         reflect
+   477          752          1069.08         reflect
+   478          754          1069.08         contract inside
+   479          755          1069.08         reflect
+   480          757          1069.08         contract inside
+   481          758          1069.08         reflect
+   482          759          1069.08         reflect
+   483          760          1069.08         reflect
+   484          761          1069.08         reflect
+   485          762          1069.08         reflect
+   486          763          1069.08         reflect
+   487          764          1069.08         reflect
+   488          765          1069.08         reflect
+   489          767          1069.08         contract inside
+   490          768          1069.08         reflect
+   491          770          1069.08         contract inside
+   492          771          1069.08         reflect
+   493          772          1069.08         reflect
+   494          774          1069.08         contract inside
+   495          776          1069.08         contract inside
+   496          778          1069.08         contract outside
+   497          779          1069.08         reflect
+   498          780          1069.08         reflect
+   499          781          1069.08         reflect
+   500          782          1069.08         reflect
+ 
+Exiting: Maximum number of iterations has been exceeded
+         - increase MaxIter option.
+         Current function value: 1069.080382 
+
+
+Final value of minus the log posterior (or likelihood):1069.080382 
+
+RESULTS FROM POSTERIOR ESTIMATION
+parameters
+         prior mean     mode    s.d. prior pstdev
+
+phi          4.000   5.4590     NaN norm 1.5000 
+sigma_c      1.500   1.2980     NaN norm 0.3750 
+lambda       0.700   0.7761     NaN beta 0.1000 
+xi_w         0.500   0.6917     NaN beta 0.1000 
+sigma_l      2.000   1.1086     NaN norm 0.7500 
+xi_p         0.500   0.5825     NaN beta 0.1000 
+iota_w       0.500   0.2798     NaN beta 0.1500 
+iota_p       0.500   0.1810     NaN beta 0.1500 
+psi          0.500   0.5341     NaN beta 0.1500 
+phi_p        1.250   1.6690     NaN norm 0.1250 
+r_pi         1.500   1.4851     NaN norm 0.2500 
+rho          0.750   0.8585     NaN beta 0.1000 
+r_y          0.125   0.0943     NaN norm 0.0500 
+r_dy         0.125   0.1458     NaN norm 0.0500 
+pi_bar       0.625   0.6602     NaN gamm 0.1000 
+beta_const   0.250   0.1498     NaN gamm 0.1000 
+l_bar        0.000   1.4755     NaN norm 2.0000 
+gamma_bar    0.400   0.4012     NaN norm 0.1000 
+alpha        0.300   0.1727     NaN norm 0.0500 
+rho_a        0.500   0.9108     NaN beta 0.2000 
+rho_b        0.500   0.2673     NaN beta 0.2000 
+rho_g        0.500   0.9900     NaN beta 0.2000 
+rho_i        0.500   0.8027     NaN beta 0.2000 
+rho_r        0.500   0.0623     NaN beta 0.2000 
+rho_p        0.500   0.5810     NaN beta 0.2000 
+rho_w        0.500   0.8844     NaN beta 0.2000 
+rho_ga       0.500   0.5007     NaN norm 0.2500 
+
+standard deviation of shocks
+         prior mean     mode    s.d. prior pstdev
+
+eta_a        0.100   0.4422     NaN invg 2.0000 
+eta_b        0.100   2.4899     NaN invg 2.0000 
+eta_g        0.100   0.5599     NaN invg 2.0000 
+eta_i        0.100   0.3782     NaN invg 2.0000 
+eta_r        0.100   0.2186     NaN invg 2.0000 
+eta_p        0.100   0.2075     NaN invg 2.0000 
+eta_w        0.100   0.1010     NaN invg 2.0000 
+
+
+MODEL SUMMARY
+
+  Number of variables:         27
+  Number of stochastic shocks: 7
+  Number of state variables:   14
+  Number of jumpers:           7
+  Number of static variables:  10
+
+
+MATRIX OF COVARIANCE OF EXOGENOUS SHOCKS
+Variables       eta_a     eta_b     eta_g     eta_i     eta_r     eta_p     eta_w
+eta_a        0.195500  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000
+eta_b        0.000000  6.199439  0.000000  0.000000  0.000000  0.000000  0.000000
+eta_g        0.000000  0.000000  0.313527  0.000000  0.000000  0.000000  0.000000
+eta_i        0.000000  0.000000  0.000000  0.142998  0.000000  0.000000  0.000000
+eta_r        0.000000  0.000000  0.000000  0.000000  0.047777  0.000000  0.000000
+eta_p        0.000000  0.000000  0.000000  0.000000  0.000000  0.043042  0.000000
+eta_w        0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.010201
+
+POLICY AND TRANSITION FUNCTIONS
+                                  mc            zcap              rk               k               q               c            inve               y             lab            pinf               w               r              kp           eps_a           eps_b           eps_g           eps_i           eps_r           eps_p           eps_w          labobs            robs   cpi_quarterly              dy              dc           dinve              dw
+Constant                           0               0               0               0               0               0               0               0               0               0               0               0               0               0               0               0               0               0               0               0        1.475472        1.336392        0.660232        0.401245        0.401245        0.401245        0.401245
+y(-1)                       0.037471        0.051938        0.059539        0.051938        0.535687        0.116178        0.238195        0.123519        0.078614        0.039221        0.032863       -0.117873        0.006883               0               0               0               0               0               0               0        0.078614       -0.117873        0.039221       -0.876481        0.116178        0.238195        0.032863
+r(-1)                      -0.220674       -0.305873       -0.350636       -0.305873       -3.154762       -0.684196       -1.402776       -0.727427       -0.462974       -0.230980       -0.193536        0.694175       -0.040535               0               0               0               0               0               0               0       -0.462974        0.694175       -0.230980       -0.727427       -0.684196       -1.402776       -0.193536
+kp(-1)                     -0.094442       -0.534488       -0.612708        0.465512       -0.106455        0.023101       -0.069672       -0.088048       -0.160979       -0.030157        0.013782       -0.020349        0.969090               0               0               0               0               0               0               0       -0.160979       -0.020349       -0.030157       -0.088048        0.023101       -0.069672        0.013782
+eps_a(-1)                  -0.972488       -0.489640       -0.561296       -0.489640       -0.191247       -0.135670        0.275056       -0.130932       -1.093610       -0.253428        0.042675       -0.072702        0.007948        0.910828               0               0               0               0               0               0       -1.093610       -0.072702       -0.253428       -0.130932       -0.135670        0.275056        0.042675
+eps_b(-1)                  -0.010952       -0.020416       -0.023404       -0.020416       -0.326725       -0.063564       -0.058568       -0.054860       -0.035469       -0.003341       -0.008351       -0.009432       -0.001692               0        0.267311               0               0               0               0               0       -0.035469       -0.009432       -0.003341       -0.054860       -0.063564       -0.058568       -0.008351
+eps_g(-1)                   0.022007        0.240202        0.275354        0.240202       -0.703759       -0.226570       -0.365695        0.823754        0.546454       -0.080760       -0.030897        0.114105       -0.010567               0               0        0.990031               0               0               0               0        0.546454        0.114105       -0.080760        0.823754       -0.226570       -0.365695       -0.030897
+eps_i(-1)                   0.055542        0.163672        0.187624        0.163672       -1.950783       -0.141844        3.539200        0.493626        0.323336        0.047900        0.027960        0.088615        0.229907               0               0               0        0.802673               0               0               0        0.323336        0.088615        0.047900        0.493626       -0.141844        3.539200        0.027960
+eps_r(-1)                  -0.017136       -0.023664       -0.027128       -0.023664       -0.242159       -0.052635       -0.109111       -0.056173       -0.035742       -0.018047       -0.015050        0.049596       -0.003153               0               0               0               0        0.062328               0               0       -0.035742        0.049596       -0.018047       -0.056173       -0.052635       -0.109111       -0.015050
+eps_p(-1)                  -1.042922       -0.578646       -0.663328       -0.578646       -0.699568       -0.158361       -0.806466       -0.332227       -0.119785        1.134407       -1.122189        0.185561       -0.023304               0               0               0               0               0        0.580976               0       -0.119785        0.185561        1.134407       -0.332227       -0.158361       -0.806466       -1.122189
+eps_w(-1)                   3.410032        1.618802        1.855705        1.618802        5.463506        0.026856       -1.201225        0.107610       -0.260103        2.836783        3.734609        0.613348       -0.034711               0               0               0               0               0               0        0.884372       -0.260103        0.613348        2.836783        0.107610        0.026856       -1.201225        3.734609
+c(-1)                       0.048278        0.172372        0.197598        0.172372       -0.209033        0.790746       -0.103276        0.536919        0.352874        0.016971        0.017096        0.089003       -0.002984               0               0               0               0               0               0               0        0.352874        0.089003        0.016971        0.536919       -0.209254       -0.103276        0.017096
+inve(-1)                    0.014800        0.047482        0.054430        0.047482       -0.114187        0.004308        0.850158        0.145393        0.095387        0.004334        0.006525        0.024046        0.024567               0               0               0               0               0               0               0        0.095387        0.024046        0.004334        0.145393        0.004308       -0.149842        0.006525
+pinf(-1)                    0.054598        0.017055        0.019551        0.017055       -0.124937       -0.030948       -0.079026       -0.030028       -0.025310        0.179046        0.061916        0.032853       -0.002284               0               0               0               0               0               0               0       -0.025310        0.032853        0.179046       -0.030028       -0.030948       -0.079026        0.061916
+w(-1)                       0.699269        0.335744        0.384878        0.335744        0.031062       -0.017264       -0.069177        0.035640       -0.044298        0.093432        0.764920        0.025308       -0.001999               0               0               0               0               0               0               0       -0.044298        0.025308        0.093432        0.035640       -0.017264       -0.069177       -0.235080
+eta_a                      -0.999032       -0.442402       -0.507146       -0.442402        0.771645        0.063938        0.738463        0.082591       -1.056621       -0.206369        0.107073       -0.295815        0.021339        1.000000               0               0               0               0               0               0       -1.056621       -0.295815       -0.206369        0.082591        0.063938        0.738463        0.107073
+eta_b                      -0.040969       -0.076377       -0.087554       -0.076377       -1.222267       -0.237790       -0.219100       -0.205228       -0.132690       -0.012499       -0.031241       -0.035284       -0.006331               0        1.000000               0               0               0               0               0       -0.132690       -0.035284       -0.012499       -0.205228       -0.237790       -0.219100       -0.031241
+eta_g                       0.022229        0.242621        0.278127        0.242621       -0.710845       -0.228851       -0.369377        0.832049        0.551956       -0.081574       -0.031209        0.115254       -0.010674               0               0        1.000000               0               0               0               0        0.551956        0.115254       -0.081574        0.832049       -0.228851       -0.369377       -0.031209
+eta_i                       0.069196        0.203908        0.233749        0.203908       -2.430359       -0.176715        4.409269        0.614977        0.402824        0.059676        0.034834        0.110400        0.286427               0               0               0        1.000000               0               0               0        0.402824        0.110400        0.059676        0.614977       -0.176715        4.409269        0.034834
+eta_r                      -0.274938       -0.379677       -0.435241       -0.379677       -3.885261       -0.844487       -1.750604       -0.901249       -0.573454       -0.289556       -0.241464        0.795733       -0.050586               0               0               0               0        1.000000               0               0       -0.573454        0.795733       -0.289556       -0.901249       -0.844487       -1.750604       -0.241464
+eta_p                      -1.795122       -0.995991       -1.141749       -0.995991       -1.204127       -0.272578       -1.388123       -0.571843       -0.206180        1.952590       -1.931560        0.319395       -0.040112               0               0               0               0               0        1.000000               0       -0.206180        0.319395        1.952590       -0.571843       -0.272578       -1.388123       -1.931560
+eta_w                       3.855881        1.830454        2.098331        1.830454        6.177839        0.030367       -1.358280        0.121679       -0.294110        3.207681        4.222895        0.693541       -0.039250               0               0               0               0               0               0        1.000000       -0.294110        0.693541        3.207681        0.121679        0.030367       -1.358280        4.222895
+
+
+MOMENTS OF SIMULATED VARIABLES
+VARIABLE                   MEAN       STD. DEV.        VARIANCE        SKEWNESS        KURTOSIS
+mc                    -0.003651        2.807730        7.883345        0.004080       -0.000437
+zcap                   0.137086        3.565626       12.713687       -0.006769       -0.060483
+rk                     0.157148        4.087436       16.707135       -0.006769       -0.060483
+k                     -0.013630        4.978590       24.786356       -0.046833       -0.097548
+q                     -0.005076        4.584806       21.020444        0.006461       -0.002270
+c                     -0.205675        5.208853       27.132152        0.015882        0.215893
+inve                  -0.138239       15.170251      230.136526       -0.012454        0.091549
+y                      0.245631        5.046899       25.471186       -0.025277       -0.069285
+lab                    0.208379        3.250688       10.566970        0.012585        0.003147
+pinf                  -0.033795        1.063098        1.130177        0.001087        0.031606
+w                     -0.064861        3.214479       10.332874        0.000610        0.025689
+r                     -0.021832        0.782307        0.612004       -0.003041        0.040352
+kp                    -0.150549        7.895967       62.346297       -0.028181       -0.087649
+eps_a                 -0.022858        1.073353        1.152087       -0.015520       -0.074640
+eps_b                  0.004526        2.585011        6.682284       -0.002258        0.014084
+eps_g                  0.379947        3.927452       15.424878       -0.038842       -0.304330
+eps_i                 -0.001213        0.627849        0.394195       -0.010100        0.065654
+eps_r                  0.000206        0.219937        0.048372        0.001559       -0.023484
+eps_p                 -0.002203        0.254489        0.064765        0.032424        0.010413
+eps_w                 -0.002351        0.217834        0.047452       -0.002415        0.018805
+labobs                 1.683851        3.250688       10.566970        0.012585        0.003147
+robs                   1.314560        0.782307        0.612004       -0.003041        0.040352
+cpi_quarterly          0.626437        1.063098        1.130177        0.001087        0.031606
+dy                     0.401329        0.952692        0.907622       -0.015276       -0.035510
+dc                     0.401369        0.805473        0.648787       -0.003535       -0.034040
+dinve                  0.401415        2.716113        7.377268       -0.017179        0.022042
+dw                     0.401234        0.763497        0.582928       -0.025300       -0.036372
+
+
+CORRELATION OF SIMULATED VARIABLES
+VARIABLE                    mc           zcap             rk              k              q              c           inve              y            lab           pinf              w              r             kp          eps_a          eps_b          eps_g          eps_i          eps_r          eps_p          eps_w         labobs           robs  cpi_quarterly             dy             dc          dinve             dw
+mc                      1.0000         0.3085         0.3085         0.1670        -0.0305        -0.2168        -0.2085        -0.2366        -0.2239         0.6293         0.8773         0.6273        -0.0439        -0.2394        -0.0446        -0.0348         0.0513        -0.0183        -0.3112         0.7569        -0.2239         0.6273         0.6293        -0.2338        -0.2531        -0.2206         0.1127
+zcap                    0.3085         1.0000         1.0000        -0.6998         0.2153        -0.5121        -0.2646        -0.0869         0.1795         0.1511         0.0061         0.1462        -0.8823        -0.1340        -0.0639         0.3425        -0.0435        -0.0252        -0.1434         0.2501         0.1795         0.1462         0.1511         0.1245         0.0341         0.2037         0.0907
+rk                      0.3085         1.0000         1.0000        -0.6998         0.2153        -0.5121        -0.2646        -0.0869         0.1795         0.1511         0.0061         0.1462        -0.8823        -0.1340        -0.0639         0.3425        -0.0435        -0.0252        -0.1434         0.2501         0.1795         0.1462         0.1511         0.1245         0.0341         0.2037         0.0907
+k                       0.1670        -0.6998        -0.6998         1.0000        -0.1824         0.6008         0.5337         0.5453         0.2618         0.0358         0.3942        -0.0009         0.9515         0.0792        -0.0557        -0.0427         0.2107        -0.0126        -0.1016        -0.0142         0.2618        -0.0009         0.0358        -0.1768        -0.1014        -0.2920         0.1277
+q                      -0.0305         0.2153         0.2153        -0.1824         1.0000         0.2047        -0.2632         0.0190         0.0219        -0.0346        -0.0310        -0.3450        -0.2273         0.1448        -0.6665        -0.0284        -0.5178        -0.1992        -0.1365         0.0033         0.0219        -0.3450        -0.0346         0.4236         0.6786         0.1008         0.2716
+c                      -0.2168        -0.5121        -0.5121         0.6008         0.2047         1.0000         0.5438         0.4983         0.3195        -0.0801        -0.0437        -0.2639         0.6223         0.1219        -0.1442        -0.4893        -0.0236        -0.0354        -0.0460        -0.3880         0.3195        -0.2639        -0.0801         0.0087         0.0773        -0.0918         0.1876
+inve                   -0.2085        -0.2646        -0.2646         0.5337        -0.2632         0.5438         1.0000         0.7147         0.5411        -0.1618        -0.0570        -0.1014         0.5054         0.2302        -0.0489        -0.1279         0.5608        -0.0254        -0.0488        -0.3432         0.5411        -0.1014        -0.1618         0.1126         0.1678         0.0895         0.1942
+y                      -0.2366        -0.0869        -0.0869         0.5453         0.0190         0.4983         0.7147         1.0000         0.8816        -0.3211        -0.1574        -0.3863         0.4148         0.1715        -0.1368         0.4250         0.2405        -0.0379        -0.0722        -0.3882         0.8816        -0.3863        -0.3211         0.0944         0.1141        -0.0006         0.2284
+lab                    -0.2239         0.1795         0.1795         0.2618         0.0219         0.3195         0.5411         0.8816         1.0000        -0.3115        -0.3775        -0.2937         0.1142        -0.2316        -0.1353         0.4939         0.2022        -0.0342        -0.0511        -0.4354         1.0000        -0.2937        -0.3115         0.1271         0.1324         0.0431         0.1923
+pinf                    0.6293         0.1511         0.1511         0.0358        -0.0346        -0.0801        -0.1618        -0.3211        -0.3115         1.0000         0.5627         0.6806        -0.0526        -0.1527        -0.0286        -0.2671         0.0544        -0.0589         0.4260         0.7757        -0.3115         0.6806         1.0000        -0.3036        -0.2935        -0.2525         0.0269
+w                       0.8773         0.0061         0.0061         0.3942        -0.0310        -0.0437        -0.0570        -0.1574        -0.3775         0.5627         1.0000         0.4815         0.2363         0.1865        -0.0308        -0.1301         0.0666        -0.0170        -0.2880         0.7364        -0.3775         0.4815         0.5627        -0.2441        -0.2477        -0.2368         0.1188
+r                       0.6273         0.1462         0.1462        -0.0009        -0.3450        -0.2639        -0.1014        -0.3863        -0.2937         0.6806         0.4815         1.0000        -0.0671        -0.3518        -0.1455        -0.2258         0.2541         0.2385         0.1580         0.6070        -0.2937         1.0000         0.6806        -0.2600        -0.3441        -0.2480        -0.0898
+kp                     -0.0439        -0.8823        -0.8823         0.9515        -0.2273         0.6223         0.5054         0.4148         0.1142        -0.0526         0.2363        -0.0671         1.0000         0.1200        -0.0088        -0.1835         0.1919         0.0019        -0.0020        -0.1375         0.1142        -0.0671        -0.0526        -0.1534        -0.0682        -0.2553         0.0499
+eps_a                  -0.2394        -0.1340        -0.1340         0.0792         0.1448         0.1219         0.2302         0.1715        -0.2316        -0.1527         0.1865        -0.3518         0.1200         1.0000        -0.0017        -0.0061         0.0022        -0.0110         0.0061         0.0088        -0.2316        -0.3518        -0.1527         0.0890         0.0710         0.1242         0.0592
+eps_b                  -0.0446        -0.0639        -0.0639        -0.0557        -0.6665        -0.1442        -0.0489        -0.1368        -0.1353        -0.0286        -0.0308        -0.1455        -0.0088        -0.0017         1.0000        -0.0093        -0.0020         0.0022        -0.0037         0.0098        -0.1353        -0.1455        -0.0286        -0.5161        -0.7095        -0.1858        -0.0884
+eps_g                  -0.0348         0.3425         0.3425        -0.0427        -0.0284        -0.4893        -0.1279         0.4250         0.4939        -0.2671        -0.1301        -0.2258        -0.1835        -0.0061        -0.0093         1.0000        -0.0057         0.0019        -0.0002         0.0121         0.4939        -0.2258        -0.2671         0.0254        -0.0290        -0.0068        -0.0040
+eps_i                   0.0513        -0.0435        -0.0435         0.2107        -0.5178        -0.0236         0.5608         0.2405         0.2022         0.0544         0.0666         0.2541         0.1919         0.0022        -0.0020        -0.0057         1.0000        -0.0000         0.0060        -0.0024         0.2022         0.2541         0.0544         0.2516        -0.0340         0.6164         0.0535
+eps_r                  -0.0183        -0.0252        -0.0252        -0.0126        -0.1992        -0.0354        -0.0254        -0.0379        -0.0342        -0.0589        -0.0170         0.2385         0.0019        -0.0110         0.0022         0.0019        -0.0000         1.0000         0.0042        -0.0008        -0.0342         0.2385        -0.0589        -0.2195        -0.2451        -0.1543        -0.0781
+eps_p                  -0.3112        -0.1434        -0.1434        -0.1016        -0.1365        -0.0460        -0.0488        -0.0722        -0.0511         0.4260        -0.2880         0.1580        -0.0020         0.0061        -0.0037        -0.0002         0.0060         0.0042         1.0000        -0.0158        -0.0511         0.1580         0.4260        -0.1809        -0.1374        -0.1421        -0.5064
+eps_w                   0.7569         0.2501         0.2501        -0.0142         0.0033        -0.3880        -0.3432        -0.3882        -0.4354         0.7757         0.7364         0.6070        -0.1375         0.0088         0.0098         0.0121        -0.0024        -0.0008        -0.0158         1.0000        -0.4354         0.6070         0.7757        -0.2336        -0.2783        -0.2120         0.3461
+labobs                 -0.2239         0.1795         0.1795         0.2618         0.0219         0.3195         0.5411         0.8816         1.0000        -0.3115        -0.3775        -0.2937         0.1142        -0.2316        -0.1353         0.4939         0.2022        -0.0342        -0.0511        -0.4354         1.0000        -0.2937        -0.3115         0.1271         0.1324         0.0431         0.1923
+robs                    0.6273         0.1462         0.1462        -0.0009        -0.3450        -0.2639        -0.1014        -0.3863        -0.2937         0.6806         0.4815         1.0000        -0.0671        -0.3518        -0.1455        -0.2258         0.2541         0.2385         0.1580         0.6070        -0.2937         1.0000         0.6806        -0.2600        -0.3441        -0.2480        -0.0898
+cpi_quarterly           0.6293         0.1511         0.1511         0.0358        -0.0346        -0.0801        -0.1618        -0.3211        -0.3115         1.0000         0.5627         0.6806        -0.0526        -0.1527        -0.0286        -0.2671         0.0544        -0.0589         0.4260         0.7757        -0.3115         0.6806         1.0000        -0.3036        -0.2935        -0.2525         0.0269
+dy                     -0.2338         0.1245         0.1245        -0.1768         0.4236         0.0087         0.1126         0.0944         0.1271        -0.3036        -0.2441        -0.2600        -0.1534         0.0890        -0.5161         0.0254         0.2516        -0.2195        -0.1809        -0.2336         0.1271        -0.2600        -0.3036         1.0000         0.6612         0.6254         0.1826
+dc                     -0.2531         0.0341         0.0341        -0.1014         0.6786         0.0773         0.1678         0.1141         0.1324        -0.2935        -0.2477        -0.3441        -0.0682         0.0710        -0.7095        -0.0290        -0.0340        -0.2451        -0.1374        -0.2783         0.1324        -0.3441        -0.2935         0.6612         1.0000         0.3432         0.1711
+dinve                  -0.2206         0.2037         0.2037        -0.2920         0.1008        -0.0918         0.0895        -0.0006         0.0431        -0.2525        -0.2368        -0.2480        -0.2553         0.1242        -0.1858        -0.0068         0.6164        -0.1543        -0.1421        -0.2120         0.0431        -0.2480        -0.2525         0.6254         0.3432         1.0000         0.0880
+dw                      0.1127         0.0907         0.0907         0.1277         0.2716         0.1876         0.1942         0.2284         0.1923         0.0269         0.1188        -0.0898         0.0499         0.0592        -0.0884        -0.0040         0.0535        -0.0781        -0.5064         0.3461         0.1923        -0.0898         0.0269         0.1826         0.1711         0.0880         1.0000
+
+
+AUTOCORRELATION OF SIMULATED VARIABLES
+VARIABLE              1       2       3       4       5
+mc               0.9555  0.8791  0.7861  0.6873  0.5892
+zcap             0.9891  0.9703  0.9472  0.9222  0.8967
+rk               0.9891  0.9703  0.9472  0.9222  0.8967
+k                0.9927  0.9778  0.9576  0.9336  0.9069
+q                0.5667  0.4050  0.3305  0.2744  0.2307
+c                0.9880  0.9662  0.9393  0.9091  0.8769
+inve             0.9840  0.9460  0.8933  0.8315  0.7645
+y                0.9822  0.9523  0.9152  0.8732  0.8285
+lab              0.9707  0.9320  0.8882  0.8410  0.7923
+pinf             0.8424  0.6821  0.5549  0.4536  0.3718
+w                0.9718  0.9113  0.8330  0.7464  0.6577
+r                0.9237  0.8282  0.7304  0.6364  0.5488
+kp               0.9983  0.9935  0.9857  0.9752  0.9622
+eps_a            0.9118  0.8321  0.7595  0.6937  0.6337
+eps_b            0.2721  0.0694  0.0205 -0.0004 -0.0038
+eps_g            0.9898  0.9795  0.9695  0.9596  0.9499
+eps_i            0.8002  0.6381  0.5069  0.4050  0.3229
+eps_r            0.0577 -0.0047 -0.0015 -0.0013  0.0053
+eps_p            0.5769  0.3326  0.1938  0.1130  0.0595
+eps_w            0.8863  0.7880  0.7008  0.6228  0.5522
+labobs           0.9707  0.9320  0.8882  0.8410  0.7923
+robs             0.9237  0.8282  0.7304  0.6364  0.5488
+cpi_quarterly    0.8424  0.6821  0.5549  0.4536  0.3718
+dy               0.3388  0.2022  0.1363  0.0775  0.0387
+dc               0.4116  0.2139  0.1372  0.0841  0.0471
+dinve            0.6851  0.4578  0.2858  0.1612  0.0676
+dw               0.5725  0.3147  0.1472  0.0379 -0.0419
+
+
+
+VARIANCE DECOMPOSITION SIMULATING ONE SHOCK AT A TIME (in percent)
+                            eta_a             eta_b             eta_g             eta_i             eta_r             eta_p             eta_w  Tot. lin. contr.
+mc                           7.39              0.84              0.28              0.58              2.23             21.23             66.80             99.34
+zcap                         7.07              1.06             11.16             48.69              1.59              5.00             22.96             97.52
+rk                           7.07              1.06             11.16             48.69              1.59              5.00             22.96             97.52
+k                            8.06              0.85              0.31             48.36              2.45              4.72             35.02             99.76
+q                            2.38             46.26              1.56             34.76              6.78              3.46              5.25            100.45
+c                            3.34              5.56             22.68              3.74              4.34              2.57             57.05             99.28
+inve                         7.98              0.42              1.56             55.33              1.80              1.83             30.93             99.85
+y                            5.27              4.08             19.67             10.71              4.65              3.80             54.09            102.26
+lab                          5.96              3.94             25.57              7.63              4.00              2.42             51.49            101.01
+pinf                         3.05              0.38              7.73              0.66              2.73             22.39             64.77            101.70
+w                            5.33              0.51              1.75              4.67              1.86             18.67             66.19             98.99
+r                           13.01              5.39              8.48             12.03              9.25              4.37             48.96            101.49
+kp                           8.31              0.05              2.98             55.30              0.92              0.84             30.05             98.44
+eps_a                      100.00              0.00              0.00              0.00              0.00              0.00              0.00            100.00
+eps_b                        0.00            100.00              0.00              0.00              0.00              0.00              0.00            100.00
+eps_g                        0.00              0.00            100.00              0.00              0.00              0.00              0.00            100.00
+eps_i                        0.00              0.00              0.00            100.00              0.00              0.00              0.00            100.00
+eps_r                        0.00              0.00              0.00              0.00            100.00              0.00              0.00            100.00
+eps_p                        0.00              0.00              0.00              0.00              0.00            100.00              0.00            100.00
+eps_w                        0.00              0.00              0.00              0.00              0.00              0.00            100.00            100.00
+labobs                       5.96              3.94             25.57              7.63              4.00              2.42             51.49            101.01
+robs                        13.01              5.39              8.48             12.03              9.25              4.37             48.96            101.49
+cpi_quarterly                3.05              0.38              7.73              0.66              2.73             22.39             64.77            101.70
+dy                           1.98             32.63             25.55             11.15              7.54              5.26             16.18            100.29
+dc                           0.88             60.76              4.82              1.89              9.18              4.21             19.26            101.00
+dinve                        4.27              4.79              1.04             71.89              3.52              3.20             11.47            100.19
+dw                           0.91              1.22              0.17              0.47              1.11             34.44             61.27             99.59
+Note: numbers do not add up to 100 due to non-zero correlation of simulated shocks in small samples
+
+Total computing time : 0h00m25s
