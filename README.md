@@ -1,2 +1,339 @@
-# HMOZ_2023_replication
+# Replication Package for "Behavioral Learning Equilibria in New Keynesian Models. 
+
+### Contact information: 
+
+Latest update on 04.04.2023. Contact tolo@bankofcanada.ca for any questions. 
+
+### Software requirements:
+
+The codes in this package have been tested on a Linux server with MATLAB 2021a using global optimization, parallel computing and symbolic math toolboxes. Parts of the package utilize the routines in Dynare software version 4.6.1. 
+
+### Main sections:
+
+The package consists of 4 main sections. 
+
+(1) posterior_mode: contains routines for posterior mode search of all models. This contains two subfolders: 
+    1.1) estimations_baseline: contains routines for mode search of the baseline model specifications. 
+    1.2) esitmations_with_exp: contains routines for mode search of altenrative model specifications that use survey data on inflation expectations as an input. 
+
+Each subfolder contains the following sections: 
+
+ -results: contains the estimation and Kalman filter output files at the posterior mode in .mat format for each model under consideration. The estimation result files also contain information about which options should be used in the estimation routines to get the corresponding output. 
+ -main_functions: contains the main routines to carry out the posterior mode search of the models under consideration. Further information about the contents of these routines are provided in "Background functions" section. 
+ -inputs: contains .mat files that are used for initializing the estimation routines. 
+ -helpers: contains some helper functions for optimization, reporting and specifying priors of estimated parameters. 
+ -forecast_summary: contains .mat files with summary statistics of pseudo out-of-sample forecasting exercise. These databases also contain information about which options should be used in the estimation routines to get the corresponding output. 
+ -dynare_initial_beliefs: contains Dynare routines to estimate the baseline rational expectation model. The results of the rational expectation model are used for initializing the beliefs of some of the adaptive learning models as well. 
+ -Matfiles: contains some output files of the csminwel optimization routine. 
  
+(2) MCMC_results: 
+
+(3) MCMC_samplers: 
+
+(4) optimal_policy: 
+ 
+### Background functions: 
+
+
+[1.6] generate_figure_1.m: Executes relevant functions and scripts to replicate Figure 1 in the study. 
+
+Format: MATLAB file
+
+[1.7] generate_figure_2.m: Executes relevant functions and scripts to replicate Figure 1 in the study. 
+
+Format: MATLAB file
+
+[1.8] generate_figure_3.m: Executes relevant functions and scripts to replicate Figure 1 in the study. 
+
+Format: MATLAB file
+
+[1.9] generate_figure_4.m: Executes relevant functions and scripts to replicate Figure 1 in the study. 
+
+Format: MATLAB file
+
+[1.10] generate_figure_5.m: Executes relevant functions and scripts to replicate Figure 1 in the study. 
+
+Format: MATLAB file
+
+[1.11] table1_metadata.xlsx: Contains posterior moments that are used for generating Table 1 in the study. 
+
+Format: XLSX file
+
+[1.12] table3_metadata.xlsx: Contains posterior moments that are used for generating Table 3 in the study. 
+
+Format: XLSX file 
+
+[1.13] table_5_metadata.csv: Contains simulation results that are used for generating Table 5 in the study. 
+
+[2] "codes" folder includes all required MATLAB programs to replicate the results in the study. 
+
+[2.1] beliefs_initialization_AR1.m: This file takes as input the estimated Rational Expectations model from SW_Estimation_REE.mod and uses the 
+recursive system to estimate an AR(1) OLS model to initialize beliefs for SAC-learning.
+
+Format: MATLAB file
+
+[2.2] beliefs_initialization_AR2.m: This file takes as input the estimated Rational Expectations model from SW_Estimation_REE.mod and uses the 
+recursive system to estimate an AR(2) OLS model to initialize beliefs for AR(2) constant gain learning. 
+
+Format: MATLAB file
+
+[2.3] beliefs_initialization_MSV.m: This file takes as input the estimated Rational Expectations model from SW_Estimation_REE.mod and uses the 
+recursive system to estimate an MSV-consistent model to initialize beliefs for MSV-learning model. 
+
+Format: MATLAB file
+
+[2.4] beliefs_initialization_MSV_t_1.m: This file is a replicate of beliefs_initialization_MSV.m but estimates a model consistent with t-1
+timing of expectations.
+
+Format: MATLAB file
+
+
+[2.5] beliefs_initialization_ree.m: This file takes as input the estimated Rational Expectations model from SW_Estimation_REE.mod and uses the 
+recursive system to estimate a REE-consistent model to initialize beliefs for a REE model without cross equation restrictions.  
+
+Format: MATLAB file
+
+[2.6] beliefs_initization_VAR.m: This file takes as input the estimated Rational Expectations model from SW_Estimation_REE.mod and uses the 
+recursive system to estimate a VAR(1) OLS model to initialize beliefs for VAR(1) constant gain learning.
+
+Format: MATLAB file
+
+
+[2.7] beta2star_rho.m: This file calculates and returns the equilibrium beta value in the small New Keynesian model as a function of the exogenous
+shock persistence. This file is used for generating figure 2(a) in the study. 
+
+Format: MATLAB file
+
+[2.8] blew.m: This file calculates the theoretical values of beta_1 as a function of beta_2, and beta_2 as a function of beta_1. This file is used 
+for generating figure 1 in the study. 
+
+Format: MATLAB file
+
+[2.9] cgl_learning_recursive.m: This function is used for the updating step of the SAC-learning algorithm with AR(1) rule. 
+
+Format: MATLAB file
+
+[2.10] expectations_statistics_mcmc.m: This file is used for calculating and plotting model-implied inflation expectations for a given posterior 
+distribution of estimated parameter values. 
+
+Format: MATLAB file
+
+[2.11] expectatios_statistics_mode.m: This file is used for calculating and plotting model-implied inflation expectations for a given point estimate
+of the posterior model. 
+
+Format: MATLAB file
+
+[2.12] forecast_comparisons.m: Given the forecast_output_xxx.mat files, it reproduces the out-of-sample forecast comparisons tables and 
+plots used in the table. 
+
+Format: MATLAB file
+
+[2.13] forecast_evaluation.m: Returns the output variable that includes the out-of-sample statistics RMSE,MSE,MAE and FE,uncentered log determinant
+under consideration. 
+
+Format: MATLAB file
+
+[2.14] forecast_main.m: Carries out all necessary steps, i.e. estimation of the model at each time step//forecasting//saving the results given the 
+model and the forecast time period. The auxiliary files for the initial beliefs at each step need to be pre-computed and saved. 
+after the estimation at each step, calls functions: point_forecast.m to obtain the period-specific forecasts, then saves it to 
+forecast_output_xxx.mat file to be used in the forecast_evaluation.m file.
+
+Format: MATLAB file
+
+[2.15] forecast_retrieve_results.m: Re-evaluates forecasts and forecast errors for given model objects, without recursively re-estimating the model 
+at every period. 
+
+Format: MATLAB file
+
+[2.16] forecast_tables.m: Generates the point forecast comparison tables and saves it to a .csv/.xlsx file.
+
+Format: MATLAB file
+
+[2.17] generate_figures.m: Generic function to plot the figure as a .pdf to a specified location.
+
+Format: MATLAB file
+
+[2.18] initial_belief_special_cases.m: Generates initial beliefs for several cases not covered in initialize_beliefs.m
+
+Format: MATLAB file
+
+[2.19] initialize_beliefs.m: Function to specify initial beliefs for learning models. 
+
+Format: MATLAB file
+
+[2.20] initialize_BLE_fixed_model.m: Function to specify initial beliefs associated with the estimated BLE model. 
+
+Format: MATLAB file
+
+[2.21] kalmanSW.m: Function that takes in data and model object, finds the recursive system associated with the equilibrium/learning model,
+runs it through the Kalman filter and returns the likelihood value. 
+
+Format: MATLAB file
+
+[2.22] KF_output.m: Same as KalmanSW.m in script form instead of function. 
+
+Format: MATLAB file
+
+[2.23] KF_output_MCMC.m: Runs the Kalman filter for specified model for posterior distribution of estimated parameters. 
+
+Format: MATLAB file
+
+[2.24] likelihood.m: Calculates the likelihood of the model given the Kalman filter output and the prior distributions. 
+
+Format: MATLAB file
+
+[2.25] main.m: Wrapper script to launch estimation of a specified model. 
+
+Format: MATLAB file
+
+MCMC_figures_tables.m: Plots and returns the MCMC tables of an estimated model. 
+
+[2.26] MetropolisHastings.m: Wrapper scripts to launch the Metropolis Hastings algorithm that runs an MCMC simulation and returns the posterior 
+distribution of the model. 
+
+Format: MATLAB file
+
+[2.27] msv_learning.m: Generic function that applies the constant gain learning step for recursive least squares models for specified PLM. 
+
+Format: MATLAB file
+
+[2.28] MSV_regression.m: Runs a multicollinearity test for a specified matrix of data. 
+
+Format: MATLAB file
+
+[2.29] param_set.m: Auxiliary file to do some re-ordering on the parameters and also set the fixed parameters. 
+
+Format: MATLAB file
+
+[2.30] plot_alphas_betas.m: For estimated BLE and SAC-learning models, this script plots the estimated alphas and betas over history.
+
+Format: MATLAB file
+
+[2.31] point_forecast.m: Returns up to xxx-step ahead forecasts given the model. 
+
+Format: MATLAB file
+
+[2.32] projection_facility.m: Computes the projection facility for a model. Our version follows Slobodyan-Wouters approach here (which in turn is 
+based on previous learning literature), which amounts to ignoring the data from latest period if it leads to explosive dynamics. If the 
+largest eigenvalue exceeds 1, leave all variables at their previous value (i.e. ignore the last data) and flag the projection_facility=1. 
+Otherwise keep the updated values, and leave the flag unchanged (the flag may have been changed to 1 in previous steps if something else went wrong.)
+
+Format: MATLAB file
+
+[2.33] REE_solve_uhlig.m: Function that uses the model object and finds the Rational Expectations Equilibrium fixed-point associated with the model.
+
+Format: MATLAB file
+
+[2.34] SW_fixedPoint.m: Function that uses the model object and finds the Behavioral Learning Equilibrium fixed-point associated with the model. 
+
+Format: MATLAB file
+
+[2.35] SW_prior.m: Function that specifies prior distributions of all estimated parameters for Smets Wouters model. 
+
+Format: MATLAB file
+
+[2.36] SW_sysmat_MSV_filter.m: Function that returns the system matrices associated with Smets Wouters model for a given set of parameter values.
+
+Format: MATLAB file
+
+[2.37] symbolic_to_matrix_MSV.m: Function that returns the symbolic system matrices associated with Smets Wouters model for a given set of model equations.
+
+Format: MATLAB file
+
+[2.38] sysmat_SW_model.m: Script that specifies that symbolic system matrices associated with Smets Wouters model. 
+
+Format: MATLAB file
+
+[2.39] update_beliefs.m: Function that applies the belief updating step for a specified information set. 
+
+Format: MATLAB file
+
+[2.40] update_matrices.m: Function that uses the system matrices and beliefs to calculate the recursive matrices of the model. 
+
+Format: MATLAB file
+
+[2.41] varratio.m: Function that calculates that variance ratios in the small New Keynesian model. This file is used for generating Figure 2(a) in the study. 
+
+Format: MATLAB file
+
+[2.42] SW_Estimation_REE.mod: Dynare file that specifies the baseline Rational Expectations version of the model. 
+
+Format: MATLAB file
+
+[2.43] "helpers" subfolder contains a set of generic functions that are used for calculating moments/hessian matrices or prior distributions. 
+ 
+Format: MATLAB file
+
+[3] "slobodyan_dataset.mat" and "expectations_dataset.mat" contain the main databases used for estimations and simulations in the study. 
+This consists of publicly available quarterly macroeconomic time series for U.S. The database is taken from (i) the study Slobodyan and Wouters (2012), 
+see Online Appendix to https://www.aeaweb.org/articles?id=10.1257/mac.4.2.65 for further details, (ii) Survey of Professional Forecasters
+of Philadelphia Fed, see https://www.philadelphiafed.org/surveys-and-data/real-time-data-research/survey-of-professional-forecasters for 
+further details. 
+
+In this readme file we provide a brief description of the contents of the datasets:
+
+[cpi_quarterly]: U.S. CPI inflation (quarter/quarter change). 
+[dc]: U.S. consumption growth rate(quarter/quarter change). 
+[dinve]: U.S. business investment growth rate (quarter/quarter change). 
+[dw]: U.S. wage growth rate (quarter/quarter change). 
+[dy]: U.S. output growth rate (quarter/quarter change). 
+[hours]: U.S. average hours worked. 
+[labobs]: U.S. average hours worked (normalized). 
+[pinfobs]: U.S. GDP deflator inflation (quarter/quarter change). 
+[robs]: U.S. FED funds rate (quarterly rate). 
+
+
+expectations_dataset.mat contains the following additional variables: 
+
+[cpi_annualized]: Annualized rate of cpi_quarterly (quarter/quarter change). 
+[inf_exp_1_step]: 1-quarter ahead CPI inflation expectations from Survey of Professional Forecasters. 
+[inf_exp_2_step]: 2-quarter ahead CPI inflation expectations from Survey of Professional Forecasters. 
+[inf_exp_3_step]: 3-quarter ahead CPI inflation expectations from Survey of Professional Forecasters. 
+[inf_exp_4_step]: 4-quarter ahead CPI inflation expectations from Survey of Professional Forecasters. 
+
+
+--------------------------
+DATA CITATION INFORMATION (Where to access the data)
+--------------------------
+
+[1] Slobodyan, S., & Wouters, R. (2012). Learning in a medium-scale DSGE model with expectations based on small
+forecasting models. American Economic Journal: Macroeconomics, 4(2), 65-101.
+
+Online Appendix publicly available at 
+
+https://www.aeaweb.org/articles?id=10.1257/mac.4.2.65.
+
+[2] Croushore, D. D. (1993). Introducing: the survey of professional forecasters. Business Review-Federal 
+Reserve Bank of Philadelphia, 6, 3.
+
+Survey results publicly available at 
+
+https://www.philadelphiafed.org/surveys-and-data/real-time-data-research/survey-of-professional-forecasters
+
+--------------------------
+DATA AVAILABILITY STATEMENT 
+--------------------------
+
+The databases provided for "Behavioral Learning Equilibria in New Keynesian Models" can be shared publicly. 
+
+
+-------------------------
+CODE-SPECIFIC INFORMATION: 
+--------------------------
+
+The user needs MATLAB software and the DYNARE package in order to run the codes.
+
+Requirements: The codes have been tested on MATLAB versions 2018a, 2019a and 2021a, 
+and DYNARE version 4.6.3.
+
+
+-----------------------------------------------
+[CODE/SOFTWARE/PROGRAM] CITATION INFORMATION: 
+-----------------------------------------------
+
+Dynare Package. 
+
+Adjemian, S., Bastani, H., Juillard, M., Mihoubi, F., Perendia, G., Ratto, M., & Villemot, S. (2011).
+Dynare: Reference manual, version 4.
+
+For instructions on how to install, please visit https://www.dynare.org/. 
