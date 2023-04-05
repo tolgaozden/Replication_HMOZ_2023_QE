@@ -28,8 +28,19 @@ Each subfolder contains the following sections:
  
  ##### Background files: 
  
- main.m: 
+dynare_initial_beliefs/slobodyan_dataset.mat: main database used in estimations with historical data on U.S. This database is taken from the replication package of Slobodyan and Wouters (2012, AEJ:Macro). See the section on data information for further details. 
  
+dynare_initial_beliefs/SW_Estimation_REE.mod: Dynare file for estimating the baseline rational expectations model. The results of this file are also used for initializing beliefs for some of the adaptive learning models. 
+ 
+dynare_initial_beliefs/beliefs_initialization_[model_name].m: the scripts use the rational expectation model as an input and run an OLS regression from the RE-based simulation results to generate initial beliefs consistent with the underlying forecasting rule for each adaptive learning model. 
+ 
+main.m: this is the main wrapper for carrying out all posterior mode estimations. BLE and all adaptive learning models, as well as all underlying options related to belief initialization, timing of expectations, the use of projection facilities, which optimizer to use etc. are specified in this file. When estimation procedure is finished, the results are saved into results/estimation_results.mat under the default options. 
+
+For the results reported in the paper, the underlying posterior modes are saved under the names results/[model_name]estimation_results.mat for each model. These databases also contain the set of options that must be specified in main.m in order to obtain the corresponding results. 
+ 
+forecast_main.m: this is the main wrapper to carry out pseudo-out-of-sample forecasting exercises for all models. For each selected model, an estimation is carried out at each quarter to obtain the corresponding posterior mode. The forecasts are then generated under the obtained set of parameter values at each quarter. The estimation results at each quarter are saved into a database in subfolder auxiliary_files. The underlying posterior mode databases used in the paper are not provided due to space limitations. 
+
+The summary statistics and key inputs needed for pseudo-out-of-sample forecasting of each model are stored in subfolder forecast_summary under the name forecast_output_[model_name].mat. 
  
 (2) MCMC_samplers: contains MCMC simulation codes for the models. Each model has a MetropolisHastings_[model_name].m script that starts the MCMC simulation. These scripts use the estimated posterior mode from (1) as candidate density to initialize the MCMC sampling. The covariance matrix of the proposal density is typically initialized with a diagonal matrix. This is followed by a short MCMC chain (5000 draws) to obtain a more reasonable covariance matrix, which is used for initializing a long MCMC chain that is used for computing the posterior moments reported in the paper.
 
