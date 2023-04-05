@@ -26,9 +26,19 @@ Each subfolder contains the following sections:
  -dynare_initial_beliefs: contains Dynare routines to estimate the baseline rational expectation model. The results of the rational expectation model are used for initializing the beliefs of some of the adaptive learning models as well. 
  -Matfiles: contains some output files of the csminwel optimization routine. 
  
-(2) MCMC_results: 
+ ##### Background files: 
+ 
+ main.m: 
+ 
+ 
+(2) MCMC_samplers: contains MCMC simulation codes for the models. Each model has a MetropolisHastings_[model_name].m script that starts the MCMC simulation. These scripts use the estimated posterior mode from (1) as candidate density to initialize the MCMC sampling. The covariance matrix of the proposal density is typically initialized with a diagonal matrix. This is followed by a short MCMC chain (5000 draws) to obtain a more reasonable covariance matrix, which is used for initializing a long MCMC chain that is used for computing the posterior moments reported in the paper.
 
-(3) MCMC_samplers: 
+The simulations for rational expectation models are carried out using Dynare routines, which are contained in subfolder dynare_initial_beliefs. 
+
+
+(3) MCMC_results: contains the MCMC simulation results of all models under consideration. These results are provided in .mat databases since the sampling step can take several days to weeks depending on the number of simulations. 
+
+A wrapper script run_me.m collects all MCMC simulations and computes posterior moments. This script also extracts 1000 posterior draws from each model. These draws are used as input to generate Kalman filter results with the posterior distribution. These distributions are used as an input to compute model-implied inflation expectations and the corresponding uncertainty band around it in Section 3.4 of the paper. 
 
 (4) optimal_policy: 
  
