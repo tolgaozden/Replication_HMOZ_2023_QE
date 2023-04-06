@@ -60,7 +60,7 @@ further details. The additional variable mnemonics related to inflation expectat
 
 
 --------------------------
-DATA CITATION INFORMATION (Where to access the data)
+###### Data citation information 
 --------------------------
 
 [1] Slobodyan, S., & Wouters, R. (2012). Learning in a medium-scale DSGE model with expectations based on small
