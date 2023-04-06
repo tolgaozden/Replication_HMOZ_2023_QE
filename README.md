@@ -10,7 +10,62 @@ Latest update on 04.04.2023. Contact tozden@bankofcanada.ca for any questions an
 
 ### Software requirements:
 
-The codes in this package have been tested on a Linux server with MATLAB 2021a using global optimization, parallel computing and symbolic math toolboxes. Parts of the package utilize the routines in Dynare software version 4.6.1. 
+The codes in this package have been tested on a Linux server with MATLAB 2021a using global optimization, parallel computing and symbolic math toolboxes. Parts of the package utilize the routines in Dynare software version 4.6.1 (For instructions on how to install Dynare, please visit https://www.dynare.org/).  
+
+### Databases: 
+
+There are two key databases used for estimations and simulations in the study, which can be found in main_databases subfolder: 
+
+1. "slobodyan_dataset.mat" contains publicly available quarterly macroeconomic time series for U.S. The database is taken from the study of Slobodyan and Wouters (2012). See the replication package of the article for all data sources and transformations: 
+
+https://www.aeaweb.org/articles?id=10.1257/mac.4.2.65
+
+In this study we use q/q CPI inflation as our measure of inflation. This is retrieved from FRED database (Consumer Price Index for All Urban Consumers (FRED mnemonic: CPIAUCSL):
+
+https://fred.stlouisfed.org/series/CPIAUCSL
+
+The variable mnemonics contained in the database are as follows: 
+
+[cpi_quarterly]: U.S. CPI inflation (quarter/quarter change). 
+[dc]: U.S. consumption growth rate(quarter/quarter change). 
+[dinve]: U.S. business investment growth rate (quarter/quarter change). 
+[dw]: U.S. wage growth rate (quarter/quarter change). 
+[dy]: U.S. output growth rate (quarter/quarter change). 
+[hours]: U.S. average hours worked. 
+[labobs]: U.S. average hours worked (normalized). 
+[pinfobs]: U.S. GDP deflator inflation (quarter/quarter change). 
+[robs]: U.S. FED funds rate (quarterly rate). 
+
+2. "expectations_dataset.mat" contains the same variables as above, with some additional time series on inflation expectations. These are taken from the Survey of Professional Forecasters of Philadelphia Fed, see https://www.philadelphiafed.org/surveys-and-data/real-time-data-research/survey-of-professional-forecasters for 
+further details. The additional variable mnemonics related to inflation expectations are as follows: 
+
+[cpi_annualized]: Annualized rate of cpi_quarterly (i.e. 4 * cpi_quarterly). 
+
+[inf_exp_1_step]: 1-quarter ahead CPI inflation expectations from Survey of Professional Forecasters. Database: Median Forecast Data for Levels, CPI Table, Mnemonic "CPI3". 
+[inf_exp_2_step]: 2-quarter ahead CPI inflation expectations from Survey of Professional Forecasters. Database: Median Forecast Data for Levels, CPI Table, Mnemonic "CPI4". 
+[inf_exp_3_step]: 3-quarter ahead CPI inflation expectations from Survey of Professional Forecasters. Database: Median Forecast Data for Levels, CPI Table, Mnemonic "CPI5". 
+[inf_exp_4_step]: 4-quarter ahead CPI inflation expectations from Survey of Professional Forecasters. Database: Median Forecast Data for Levels, CPI Table, Mnemonic "CPI6". 
+
+
+--------------------------
+DATA CITATION INFORMATION (Where to access the data)
+--------------------------
+
+[1] Slobodyan, S., & Wouters, R. (2012). Learning in a medium-scale DSGE model with expectations based on small
+forecasting models. American Economic Journal: Macroeconomics, 4(2), 65-101.
+
+Online Appendix publicly available at 
+
+https://www.aeaweb.org/articles?id=10.1257/mac.4.2.65.
+
+[2] Croushore, D. D. (1993). Introducing: the survey of professional forecasters. Business Review-Federal 
+Reserve Bank of Philadelphia, 6, 3.
+
+Survey results publicly available at 
+
+https://www.philadelphiafed.org/surveys-and-data/real-time-data-research/survey-of-professional-forecasters
+
+
 
 ### Replication scripts: 
 
@@ -326,76 +381,6 @@ Format: MATLAB file
  
 Format: MATLAB file
 
-[3] "slobodyan_dataset.mat" and "expectations_dataset.mat" contain the main databases used for estimations and simulations in the study. 
-This consists of publicly available quarterly macroeconomic time series for U.S. The database is taken from (i) the study Slobodyan and Wouters (2012), 
-see Online Appendix to https://www.aeaweb.org/articles?id=10.1257/mac.4.2.65 for further details, (ii) Survey of Professional Forecasters
-of Philadelphia Fed, see https://www.philadelphiafed.org/surveys-and-data/real-time-data-research/survey-of-professional-forecasters for 
-further details. 
-
-In this readme file we provide a brief description of the contents of the datasets:
-
-[cpi_quarterly]: U.S. CPI inflation (quarter/quarter change). 
-[dc]: U.S. consumption growth rate(quarter/quarter change). 
-[dinve]: U.S. business investment growth rate (quarter/quarter change). 
-[dw]: U.S. wage growth rate (quarter/quarter change). 
-[dy]: U.S. output growth rate (quarter/quarter change). 
-[hours]: U.S. average hours worked. 
-[labobs]: U.S. average hours worked (normalized). 
-[pinfobs]: U.S. GDP deflator inflation (quarter/quarter change). 
-[robs]: U.S. FED funds rate (quarterly rate). 
 
 
-expectations_dataset.mat contains the following additional variables: 
 
-[cpi_annualized]: Annualized rate of cpi_quarterly (quarter/quarter change). 
-[inf_exp_1_step]: 1-quarter ahead CPI inflation expectations from Survey of Professional Forecasters. 
-[inf_exp_2_step]: 2-quarter ahead CPI inflation expectations from Survey of Professional Forecasters. 
-[inf_exp_3_step]: 3-quarter ahead CPI inflation expectations from Survey of Professional Forecasters. 
-[inf_exp_4_step]: 4-quarter ahead CPI inflation expectations from Survey of Professional Forecasters. 
-
-
---------------------------
-DATA CITATION INFORMATION (Where to access the data)
---------------------------
-
-[1] Slobodyan, S., & Wouters, R. (2012). Learning in a medium-scale DSGE model with expectations based on small
-forecasting models. American Economic Journal: Macroeconomics, 4(2), 65-101.
-
-Online Appendix publicly available at 
-
-https://www.aeaweb.org/articles?id=10.1257/mac.4.2.65.
-
-[2] Croushore, D. D. (1993). Introducing: the survey of professional forecasters. Business Review-Federal 
-Reserve Bank of Philadelphia, 6, 3.
-
-Survey results publicly available at 
-
-https://www.philadelphiafed.org/surveys-and-data/real-time-data-research/survey-of-professional-forecasters
-
---------------------------
-DATA AVAILABILITY STATEMENT 
---------------------------
-
-The databases provided for "Behavioral Learning Equilibria in New Keynesian Models" can be shared publicly. 
-
-
--------------------------
-CODE-SPECIFIC INFORMATION: 
---------------------------
-
-The user needs MATLAB software and the DYNARE package in order to run the codes.
-
-Requirements: The codes have been tested on MATLAB versions 2018a, 2019a and 2021a, 
-and DYNARE version 4.6.3.
-
-
------------------------------------------------
-[CODE/SOFTWARE/PROGRAM] CITATION INFORMATION: 
------------------------------------------------
-
-Dynare Package. 
-
-Adjemian, S., Bastani, H., Juillard, M., Mihoubi, F., Perendia, G., Ratto, M., & Villemot, S. (2011).
-Dynare: Reference manual, version 4.
-
-For instructions on how to install, please visit https://www.dynare.org/. 
