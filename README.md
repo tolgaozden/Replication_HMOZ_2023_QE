@@ -42,6 +42,12 @@ posterior_mode/estimations_baseline/forecast_summary/forecast_output_[model_name
 
 The routines used in generating forecasts are explained in further detail below. 
 
+**replicate_figure_3_table_4.m**: uses routines in posterior_mode/estimations_with_exp and MCMC_samplers/MCMC_sampler_with_expectation to replicate figure 3 and the correlations in table 4. This script makes use of the same databases that are highlighted for tables 1 and 3. Given the posterior distribution databases of each model, the Kalman filter is re-run 1000 times with posterior parameter draws to obtain HPD bands of inflation expectations. The correlations are generated using the point estimated at the posterior mode. 
+
+**replicate_figure_4.m**: uses routines in posterior_mode/estimations_with_exp to replicate figure 4. This script uses the posterior mode estimations of BLE and SAC models, same databases for tables 1 and 3, to generate the figure. 
+
+**replicate_figure_5_table_5**: uses routines in optimal_policy subfolder to replicate table 5 and figure 5. This script uses the posterior mode estimations, same databases used for tables 1 and 3, to simulate each model over a grid of smoothing parameter and compute the optimal parameter values given the objective function. 
+
 
 ### Main sections:
 
