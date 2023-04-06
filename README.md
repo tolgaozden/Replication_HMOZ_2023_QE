@@ -27,13 +27,21 @@ https://fred.stlouisfed.org/series/CPIAUCSL
 The variable mnemonics contained in the database are as follows: 
 
 [cpi_quarterly]: U.S. CPI inflation (quarter/quarter change). 
+
 [dc]: U.S. consumption growth rate(quarter/quarter change). 
+
 [dinve]: U.S. business investment growth rate (quarter/quarter change). 
+
 [dw]: U.S. wage growth rate (quarter/quarter change). 
+
 [dy]: U.S. output growth rate (quarter/quarter change). 
+
 [hours]: U.S. average hours worked. 
+
 [labobs]: U.S. average hours worked (normalized). 
+
 [pinfobs]: U.S. GDP deflator inflation (quarter/quarter change). 
+
 [robs]: U.S. FED funds rate (quarterly rate). 
 
 2. "expectations_dataset.mat" contains the same variables as above, with some additional time series on inflation expectations. These are taken from the Survey of Professional Forecasters of Philadelphia Fed, see https://www.philadelphiafed.org/surveys-and-data/real-time-data-research/survey-of-professional-forecasters for 
