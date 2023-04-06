@@ -1,12 +1,47 @@
-# Replication Package for "Behavioral Learning Equilibria in New Keynesian Models. 
+# Replication Package for "Behavioral Learning Equilibria in New Keynesian Models." by C. Hommes, K. Mavromatis, T. Ozden, and M. Zhu. 
+
+Working paper link (2022): 
+
+https://www.bankofcanada.ca/2022/09/staff-working-paper-2022-42/
 
 ### Contact information: 
 
-Latest update on 04.04.2023. Contact tolo@bankofcanada.ca for any questions. 
+Latest update on 04.04.2023. Contact tozden@bankofcanada.ca for any questions and inquiries. 
 
 ### Software requirements:
 
 The codes in this package have been tested on a Linux server with MATLAB 2021a using global optimization, parallel computing and symbolic math toolboxes. Parts of the package utilize the routines in Dynare software version 4.6.1. 
+
+### Replication scripts: 
+
+The package is accompanied by a set of wrapper scripts to directly reproduce the figures and tables in the paper. 
+
+**replicate_figure_1.m**: uses routines in subfolder "3equation" to replicate figure 1. 
+
+**replicate_figure_2.m**: uses routines in subfolder "3euquation" to replicate figure 2. 
+
+**replicate_table_1_3.m**: uses routines in subfoldfer "MCMC_results" to replicate Tables 1 and 3. Note that this script does not re-run posterior mode estimation and MCMC simulations. It uses the provided databases in the following subfolders to compute the posterior moments and create the corresponding tables: 
+
+posterior_mode/estimations_baseline/results/[model_name]_estimation_results.mat (posterior mode of baseline models in table 1)
+
+posterior_mode/estimation_with_exp/results/[model_name]_estimation_results.mat (posterior mode of models with inflation expectations in table 3)
+
+posterior_mode/estimations_baseline/dynare_initial_beliefs/SW_Estimation_REE_results.mat (posterior mode with Dynare implementation of baseline RE model)
+
+posterior_mode/estimations_with_exp/dynare_initial_beliefs/SW_Estimation_REE_expData.mat (posterior mode with Dynare implementation of RE model with inflation exp.)
+
+MCMC_results/mcmc_baseline/mcmc_[model_name].mat (posterior distribution of baseline models in table 1)
+
+MCMC_results/mcmc_expectations/mcmc_[model_name].mat (posterior distribution of models with inflation expectations in table 3)
+
+The routines used in the posterior mode estimation and MCMC simulations are explained in further detail below. 
+
+**replicate_table_2.m**: uses routines in subfolder "posterior_mode" to replicate Table 2. Note that this script does not re-run the pseudo-out-of-sample forecasting exercise. It uses the provided databases in the following subfolder to compute the forecast errors, underlying RMSE's and the comparison table: 
+
+posterior_mode/estimations_baseline/forecast_summary/forecast_output_[model_name].mat 
+
+The routines used in generating forecasts are explained in further detail below. 
+
 
 ### Main sections:
 
