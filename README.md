@@ -14,7 +14,7 @@ The codes in this package have been tested on a Linux server with MATLAB 2021a u
 
 ### Databases: 
 
-There are two key databases used for estimations and simulations in the study, which can be found in main_databases subfolder: 
+There are two key databases used for estimations and simulations in the study, which can be found in main_databases subfolder. These variables are also provided in a spreadsheet in main_databases/database.csv. Below we provide details of all variables, mnemonics and data sources. 
 
 1. "slobodyan_dataset.mat" contains publicly available quarterly macroeconomic time series for U.S. The database is taken from the study of Slobodyan and Wouters (2012). See the replication package of the article for all data sources and transformations: 
 
@@ -56,6 +56,7 @@ further details. The additional variable mnemonics related to inflation expectat
 [inf_exp_3_step]: 3-quarter ahead CPI inflation expectations from Survey of Professional Forecasters. Database: Median Forecast Data for Levels, CPI Table, Mnemonic "CPI5". 
 
 [inf_exp_4_step]: 4-quarter ahead CPI inflation expectations from Survey of Professional Forecasters. Database: Median Forecast Data for Levels, CPI Table, Mnemonic "CPI6". 
+
 
 
 --------------------------
