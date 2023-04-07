@@ -48,7 +48,7 @@ The variable mnemonics contained in the database are as follows:
 further details. The additional variable mnemonics related to inflation expectations are as follows: 
 
     [cpi_annualized]: Annualized rate of cpi_quarterly (i.e. 4 * cpi_quarterly). 
-
+    
     [inf_exp_1_step]: 1-quarter ahead CPI inflation expectations from Survey of Professional Forecasters. Database: Median Forecast Data for Levels, CPI Table, Mnemonic "CPI3". 
 
     [inf_exp_2_step]: 2-quarter ahead CPI inflation expectations from Survey of Professional Forecasters. Database: Median Forecast Data for Levels, CPI Table, Mnemonic "CPI4". 
