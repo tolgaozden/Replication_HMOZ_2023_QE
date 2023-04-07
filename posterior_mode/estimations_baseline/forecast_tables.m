@@ -3,7 +3,7 @@
 clear;clc;%close all;
 addpath(genpath(cd));
 load forecast_output_ble.mat;%retrieve forecast related variables-->should be the same in all files
-clearvars -except forecast;%
+% clearvars -except forecast;%
 %dataset order: [dy dc dinve dw pinfobs robs labobs];
 ree_result=forecast_evaluation('forecast_output_ree.mat');
 msv_result=forecast_evaluation('forecast_output_msv.mat');
@@ -14,7 +14,7 @@ var1_result=forecast_evaluation('forecast_output_var1.mat');
 
 
 
-  output_file='forecast_template.csv';
+ output_file='forecast_template.csv';
  output_sheet='forecast_template';
 
 names=[{'REE','MSV' ,'BLE' ,'SAC','VAR(1)','AR(2)'} ] ;  
@@ -103,6 +103,15 @@ disp(variables)
 disp('BLE percentage gains')
 disp(variables)
 [horizons ble_perc_gains ble_overall_perc_gains']
+%=========================================
+disp('VAR percentage gains')
+disp(variables)
+[horizons var1_perc_gains var1_overall_perc_gains']
+%=========================================
+disp('AR(2) percentage gains')
+disp(variables)
+[horizons ar2_perc_gains ar2_overall_perc_gains']
+
 %============================================
 % forecast_comb_perc_gains=100*(ree_result.RMSE(:,horizons)'-forecast_comb3_result.RMSE(:,horizons)')./ree_result.RMSE(:,horizons)';
 % forecast_comb_overall_perc_gains=100*(ree_result.uncentered_log_det(horizons)-forecast_comb3_result.uncentered_log_det(horizons))/14;

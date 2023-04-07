@@ -5,7 +5,7 @@ addpath(genpath(cd));
 names_endo=[{'mc' 'zcap' 'rk' 'k' 'q'  'Consumption' 'Investment' 'Output' 'lab' 'Inflation' 'w' 'r' 'kp'   'dy' 'dc' 'dinve' 'dw' 'eps_a'  'eps_b' 'eps_g' 'eps_i'  'eps_r'  'eps_p' 'eps_w' }];
  names_exo=[{ 'Productivity'  'Risk Premium' 'Government Spending' 'Investment'  'Monetary Policy'  'Price Mark-up' 'Wage Mark-up' }];
 
-string_ ='posterior_mode/ble_estimation_results.mat';
+string_ ='posterior_mode/ar2_estimation_results.mat';
 load(string_);
 % 
 % model.PLM='ar(2),t-1,rls';%options: 'msv,t','msv,t-1',ar(1),t,rls','ar(1),t,sac','ar(1),t-1,rls','ar(1),t-1,sac','ar(2),t-1,rls'

@@ -114,7 +114,7 @@ infl_exp_error  =squeeze(exp_error(:,6,:));
 
 
 load SPF_results.mat;
-
+est_database = load('expectations_dataset.mat');
 
 
 %% derive mcmc bands
@@ -174,10 +174,14 @@ corr_inf_exp = corr_inf_exp([mc_lb mc_med mc_ub]);
 %% figures 
 
 ff2=figure('Name','inflation expectations, model-implied vs. empirical');
+ff2.Position = [2067 179 709 632];
 % plotx1(infl_data_exp_error,'--','color','blue');
 plotx1((infl_data));
 hold on;
-plot(date_tt,inf_exp_1_step,'color','red');
+% hold on;
+pp=plot(date_tt,4*est_database.cpi_quarterly(end-175+1:end),'--','color','black','lineWidth',0.5)
+hold on;
+plot(date_tt,inf_exp_1_step,'color','red','lineWidth',1.5);
 %legend('model-implied, HPD interval','model-implied, median','empirical');
 % print -dpdf figures/ar2_inf_exp_mcmc
 ylim([-1 16]);

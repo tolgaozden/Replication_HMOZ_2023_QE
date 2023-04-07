@@ -1,19 +1,12 @@
-
 clear;
 clc;
-% close all;
-% load kf_output_estimation_results_ar2_t_1_full.mat;
-% load kf_output;
-load results/ar2_kf_output;
-load AR2_posteriorDist.mat;
-% pi_bar = x(15);
 
 
-% autocorr(S(2:end,10) - beta_tt(10,10) * S(1:end-1,10))
-%filtered data for forward-looking variaar2s 
+load results/ar2_kf_output.mat;
 
-%period covered: 1965Q1-2008Q4 (176 obs)
-S_FL = S_mcmc(:,model.FL_indices,:);
+%period covered: 1965Q1-2008Q3 (175 obs)
+S_FL = S(:,model.FL_indices);
+
 
 % 1965Q1-2008Q3
 counter=1:1:size(S_FL,1);
@@ -22,169 +15,189 @@ xx1=datetime(1965,1,1);xx2=datetime(2008,9,1);date_tt=xx1:calmonths(3):xx2;
 date_tt=date_tt';
 
 %retrieve betas for expectations 
+switch model.learning 
+    case 0 % retrieve BLE
+beta_BLE = diag(beta_tt(model.FL_indices,model.FL_indices));
+% beta_BLE = beta_init;
 
+    case 1
+end
 
+% beta_BLE(6)=0.1;
 
-
-%Perceived inflation for period t = beta * S_{t-1} 
 S_exp       = nan(size(S_FL));
 exp_error   = nan(size(S_FL));
-
-for mcmc=1:size(S_mcmc,3)
-% disp(mcmc)
-
-
-
-for tt=3:size(S_mcmc,1)
+for tt=3:length(S_FL)
+    
     switch model.learning 
         case 0
             
-%expectations for period t, made at period t-1, with information availaar2 from t-2      
-S_exp(tt,:,mcmc) = beta_BLE(:,mcmc) .* beta_BLE(:,mcmc) .* S_FL(tt-2,:,mcmc)' ;
+%expectations for period t, made at period t-1, with information available from t-2      
+S_exp(tt,:) = beta_BLE .* beta_BLE .* S_FL(tt-2,:)' ;
 % S_exp(tt,:) = S(tt-1,end-6:end);
 
         case 1
             switch model.learning_algo 
                 case 'ar(1),sac'
-S_exp(tt,:,mcmc) = alpha_all(:,tt-2,mcmc) +( beta_all(:,tt-2,mcmc) .* beta_all(:,tt-2,mcmc) .* (S_FL(tt-2,:,mcmc)' - alpha_all(:,tt-2,mcmc)));
+S_exp(tt,:) = alpha_all(:,tt-2) +( beta_all(:,tt-2) .* beta_all(:,tt-2) .* (S_FL(tt-2,:)' - alpha_all(:,tt-2)));
                 case 'ar(1),rls'
-S_exp(tt,:,mcmc) = alpha_all(:,tt-2,mcmc) +( beta_all(:,tt-2,mcmc) .* beta_all(:,tt-2,mcmc) .* S_FL(tt-2,:,mcmc)' + beta_all(:,tt-2,mcmc) .* alpha_all(:,tt-2,mcmc));
+S_exp(tt,:) = alpha_all(:,tt-2) +( beta_all(:,tt-2) .* beta_all(:,tt-2) .* S_FL(tt-2,:)' + beta_all(:,tt-2) .* alpha_all(:,tt-2));
                 case 'var(1)'
-                a_tmp = alpha_all(:,tt-2,mcmc);
-                b_tmp = beta_all(:,:,tt-2,mcmc);
+                a_tmp = alpha_all(:,tt-2);
+                b_tmp = beta_all(:,:,tt-2);
                 
-  S_exp(tt,:,mcmc) = a_tmp+ b_tmp * S_mcmc(tt-2,model.BL_indices,mcmc)' ;
+  S_exp(tt,:) = a_tmp+ b_tmp * S(tt-2,model.BL_indices)' ;
   
   
                 case 'ar(2),rls'
-                    if tt>3 
+                    if tt>3
   
 %            exp1 = -rkp + (alpha_rk + beta1_rk*alpha_rk) + (beta1_rk^2+beta2_rk) *  rkm + (beta1_rk*beta2_rk)*rkm2 == 0;         
-a_tmp = squeeze(learning_parameters(tt-2,:,1,mcmc))';
-b1_tmp = squeeze(learning_parameters(tt-2,:,2,mcmc))';
-b2_tmp = squeeze(learning_parameters(tt-2,:,3,mcmc))';
+a_tmp = squeeze(learning_parameters(tt-2,:,1))';
+b1_tmp = squeeze(learning_parameters(tt-2,:,2))';
+b2_tmp = squeeze(learning_parameters(tt-2,:,3))';
 
-S_exp(tt,:,mcmc)= (a_tmp + b1_tmp .* a_tmp) + (b1_tmp.^2 + b2_tmp) .* S_FL(tt-2,:,mcmc)' + (b1_tmp .* b2_tmp) .* S_FL(tt-3,:,mcmc)';
+S_exp(tt,:)= (a_tmp + b1_tmp .* a_tmp) + (b1_tmp.^2 + b2_tmp) .* S_FL(tt-2,:)' + (b1_tmp .* b2_tmp) .* S_FL(tt-3,:)';
                     end
                
   
-            case 'ar2'
+            case 'msv'
                 
-                a_tmp = alpha_all(:,tt-2,mcmc);
-                b_tmp = beta_all(:,:,tt-2,mcmc);
-                d_tmp = dd_all(:,1:end-1,tt-2,mcmc); %exclude the iid exp. shock
+                a_tmp = alpha_all(:,tt-2);
+                b_tmp = beta_all(:,:,tt-2);
+                d_tmp = dd_all(:,1:end-1,tt-2); %exclude the iid exp. shock
                 
-  S_exp(tt,:,mcmc) = a_tmp+ b_tmp * S_mcmc(tt-2,model.BL_indices,mcmc)' + d_tmp * S_mcmc(tt-1,model.shock_indices,mcmc)';              
-
+  S_exp(tt,:) = a_tmp+ b_tmp * S(tt-2,model.BL_indices)' + d_tmp * S(tt-1,model.shock_indices)';              
+                
 
 
             end
     end
-    
-    
-    
-exp_error(tt,:,mcmc) = S_FL(tt,:,mcmc) - S_exp(tt,:,mcmc);
+%forecast errors 
+exp_error(tt,:) = S_FL(tt,:) - S_exp(tt,:);
 end
 
 
 
-end
-
-pi_bar_mcmc = param_mcmc(:,15);
 
 % %omit the first year (remaining sample is 1966Q1-2008Q4)
 % S_exp = S_exp(5:end,:);
 % exp_error=exp_error(5:end,:);
 
 
-%look at the period for which SPF is availaar2: 1981Q4 omwards 
+%look at the period for which SPF is available: 1981Q4 omwards 
 
 % S_exp = S_exp(64:end,:);
 % exp_error= exp_error(64:end,:);
 
 
 %focus on inflation expectations (inflation index=6 in forward looking
-%variaar2s)
+%variables)
+
+
  
-infl_exp        = squeeze(S_exp(:,6,:));
-infl_exp_error  =squeeze(exp_error(:,6,:));
+infl_exp         = S_exp(:,6);
+% infl_exp_2        = S_exp_2(:,6);
+% infl_exp_3        = S_exp_3(:,6);
+% infl_exp_4        = S_exp_4(:,6);
+
+infl_exp_error  =exp_error(:,6);
 
 
-
+%% comparison with survey of professional forecasters
 
 load SPF_results.mat;
 
+% adjust the sample size if full sample was used 
 
+ll_spf = length(exp_errors_empirical1);
 
-%% derive mcmc bands
-
-%add back inflation trend 
-for jj=1:mcmc
-    infl_exp(:,jj)= infl_exp(:,jj) + pi_bar_mcmc(jj);
+if length(infl_exp) > ll_spf 
+    
+    infl_exp = infl_exp(end-ll_spf+1:end);
+    infl_exp_error = infl_exp_error(end-ll_spf+1:end);
+    
 end
 
-infl_exp_error_sorted = sort(infl_exp_error,2);
-infl_exp_sorted =sort(infl_exp,2);
+pi_bar = x(15) ; %intercept of inflation in the measurement equation
+
+rmse_error =sqrt(mean(((infl_exp_error(1:end,:) - exp_errors_empirical1(1:end,:)/4).^2),1));
+% rmse_acf =mean(sqrt((autocorr(infl_exp_error) - autocorr(exp_errors_empirical1/4)).^2),1);
+
+rmse_inf_exp = sqrt(mean(((infl_exp(1:end,:) +pi_bar - inf_exp_1_step(1:end,:)/4 ).^2),1));
+
+% figure('Name','sample autocorrelation of expectation erorrs');
+% for jj=1:7
+%     subplot(2,4,jj)
+%     autocorr(exp_error(:,jj));
+%     title(names_endo(model.FL_indices(jj)));
+% end
+% print -dpdf figures/sacf_expectation_errors;
 
 
-%derive the HPD band
-mc_lb = 0.01;
-mc_ub = 0.99;
-mc_med = 0.5;
 
-mc_lb = round(mc_lb * mcmc);
-mc_ub = round(mc_ub * mcmc);
-mc_med = round(mc_med * mcmc);
 
-infl_exp_error_lb = infl_exp_error_sorted(:,mc_lb);
-infl_exp_error_med = infl_exp_error_sorted(:,mc_med);
-infl_exp_error_ub = infl_exp_error_sorted(:,mc_ub);
+% 
+% figure('Name','inflation expectations 1-step ahead');
+% plot((infl_exp(1:end)+ pi_bar)*4,'b');
+% hold on;
+% plot(inf_exp_1_step(1:end),'r','lineStyle','--');%this is annualized, divide by 4
+% hold on;
+% % yyaxis right;
+% % plot(cpi_annualized(1:end),'--','Color','k');
+% 
+% legend('model-implied','empirical');
+% % str_ = strcat(['rmse of inflation expectations: ', num2str(rmse_inf_exp)]);
+% % title(str_);
+% ylabel('Inflation Expectation')
+% % print -dpdf figures/ble_exp_1step_inflation
+% 
+% generate_figures('ble_exp_1step_inflation','figures');
 
-infl_exp_lb = infl_exp_sorted(:,mc_lb);
-infl_exp_med = infl_exp_sorted(:,mc_med);
-infl_exp_ub = infl_exp_sorted(:,mc_ub);
+corr_inf= corr((infl_exp(1:end)+pi_bar)*4,inf_exp_1_step(1:end));
+disp('correlation between model-implied and empirical inflation expectations (1-step ahead):');
+disp(corr_inf);
+% 
+% figure('Name','exp errors');
+% plot(infl_exp_error*4,'b');
+% hold on;
+% plot(exp_errors_empirical1,'r','LineStyle','--');
+% legend('model-implied','empirical');
+% str_ = strcat(['rmse of inflation expectation errors: ', num2str(rmse_error)]);
+% title(str_);
+% % ylim([-1.5 1]);
+% ylabel('Inflation Expectation Errors')
+% % print -dpdf figures/ble_exp_errors_inflation
+% generate_figures('ble_exp_errors_inflation','figures');
 
-infl_data_exp_error = [infl_exp_error_med infl_exp_error_ub infl_exp_error_lb];
-infl_data = 4*[infl_exp_med infl_exp_ub infl_exp_lb];
-%% append empirical series with nans 
+corr_exp_error = corr(infl_exp_error,exp_errors_empirical1/4);
+disp('correlation between model-implied and empirical inflation expectation errors (1-step ahead):');
+disp(corr_exp_error);
 
-l_diff = size(infl_data,1) - size(exp_errors_empirical1,1);
-exp_errors_empirical1 = [nan(l_diff,1);exp_errors_empirical1];
-inf_exp_1_step = [nan(l_diff,1);inf_exp_1_step];
-%% compute correlation distribution 
-
-for jj=1:mcmc 
-  corr_inf_exp_error(jj) =   corr(exp_errors_empirical1(l_diff+1:end),infl_exp_error(l_diff+1:end,jj));
-  corr_inf_exp(jj) =   corr(inf_exp_1_step(l_diff+1:end),infl_exp(l_diff+1:end,jj));
-end
-
-corr_inf_exp_error = sort(corr_inf_exp_error);
-corr_inf_exp_error = corr_inf_exp_error([mc_lb mc_med mc_ub]);
-
-corr_inf_exp = sort(corr_inf_exp);
-corr_inf_exp = corr_inf_exp([mc_lb mc_med mc_ub]);
-
-writematrix(corr_inf_exp(3),...
+writematrix(corr_inf,...
     'inf_exp_correlations.xlsx','sheet','ar2','range','B2');
 
-writematrix(corr_inf_exp_error(3),...
+writematrix(corr_exp_error,...
     'inf_exp_correlations.xlsx','sheet','ar2','range','B3');
 
-%% compute RMSE statistics for inflation expectations 
 
 
-%% figures 
+% 
+% figure('Name','autocorrelation of exp errors');
+% acf_model = autocorr(infl_exp_error);
+% acf_emp = autocorr(exp_errors_empirical1/4);
+% plot(acf_model(2:end),'b');
+% hold on;
+% plot(acf_emp(2:end),'r','LineStyle','--');
+% legend('model-implied','empirical');
+% str_ = strcat(['rmse of exp error ACF: ', num2str(rmse_acf)]);
+% title(str_);
+% % ylim([-0.2 0.35]);
+% ylabel('ACF of Inflation Expectation Errors')
+% print -dpdf figures/ar1_sacf_infl_e[scale=0.75]xpectation_errors
 
-ff2=figure('Name','inflation expectations, model-implied vs. empirical');
-% plotx1(infl_data_exp_error,'--','color','blue');
-plotx1((infl_data));
-hold on;
-plot(date_tt,inf_exp_1_step,'color','red');
-%legend('model-implied, HPD interval','model-implied, median','empirical');
-% print -dpdf figures/ar2_inf_exp_mcmc
-ylim([-1 16]);
-ylabel('Annualized q/q %');
-set(gca,'FontSize',15)
-xlabel('Year');
 
-generate_figures('ar2_inf_exp_mcmc','figures');
+% 
+% figure('Name','Inflation beta for AR(1) learning model');
+% plot(beta_all(6,end-104:end),'b');
+% generate_figures('ar1_inflation_beta','figures');

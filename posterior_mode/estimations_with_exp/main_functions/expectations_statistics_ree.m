@@ -84,27 +84,27 @@ rmse_error =sqrt(mean(((fore_error_model(1:end,:)/4 - exp_errors_empirical1(1:en
 rmse_inf_exp=sqrt(mean(((pinf_exp_re(1:end,:)/4 - inf_fore_1(1:end,:)/4).^2),1));
 
 
-figure('Name','inflation expectations 1-step ahead');
-plot(pinf_exp_re,'b');
-hold on;
-plot(inf_fore_1);
-legend('model-implied','empirical');
-% str_ = strcat(['rmse of inflation expectations: ', num2str(rmse_inf_exp)]);
-% title(str_);
-generate_figures('ree_exp_1step_inflation','figures');
-
+% figure('Name','inflation expectations 1-step ahead');
+% plot(pinf_exp_re,'b');
+% hold on;
+% plot(inf_fore_1);
+% legend('model-implied','empirical');
+% % str_ = strcat(['rmse of inflation expectations: ', num2str(rmse_inf_exp)]);
+% % title(str_);
+% generate_figures('ree_exp_1step_inflation','figures');
+% 
 
 corr_inf=corr(pinf_exp_re,inf_fore_1);
 disp('correlation between model-implied and empirical inflation expectations (1-step ahead):');
 disp(corr_inf);
 
-figure('Name','exp errors');
-plot(fore_error_model,'b');
-hold on;
-plot(exp_errors_empirical1(1:end-1),'r','LineStyle','--');
-str_ = strcat(['rmse of inflation expectation errors: ', num2str(rmse_error)]);
-title(str_);
-generate_figures('ree_exp_errors_inflation','figures');
+% figure('Name','exp errors');
+% plot(fore_error_model,'b');
+% hold on;
+% plot(exp_errors_empirical1(1:end-1),'r','LineStyle','--');
+% str_ = strcat(['rmse of inflation expectation errors: ', num2str(rmse_error)]);
+% title(str_);
+% generate_figures('ree_exp_errors_inflation','figures');
 
 corr_exp_error=corr(fore_error_model,exp_errors_empirical1(1:end-1));
 disp('correlation between model-implied and empirical inflation expectation errors (1-step ahead):');
