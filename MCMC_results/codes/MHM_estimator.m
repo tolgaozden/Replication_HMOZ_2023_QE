@@ -58,6 +58,10 @@ format long;
 disp(marginal(:,2));
 
 MCMC.marginal = marginal;
+if strcmp(file_name,'mcmc_sac.mat')==1
+    MCMC.marginal = MCMC.marginal + 11.4026 %adjust for gain
+end
+    
 MCMC.Ndraws = Ndraws;
 MCMC.posterior_covar = posterior_covar;
 

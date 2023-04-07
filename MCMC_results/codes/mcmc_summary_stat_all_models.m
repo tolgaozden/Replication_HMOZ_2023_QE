@@ -66,18 +66,19 @@ input_draws=500000;
 
 
 writetable(mcmc_summary_exp_sac,'mcmc_results_exp.xlsx','sheet','sac');
-% writematrix(mcmc_sac_exp.marginal(end,2),'mcmc_results_exp_220322.xlsx','sheet','sac','range','A40');
+writematrix(mcmc_sac_exp.marginal(end,2),'mcmc_results_exp.xlsx','sheet','sac','range','A40');
 
 writetable(mcmc_summary_exp_ble,'mcmc_results_exp.xlsx','sheet','ble');
-% writematrix(mcmc_ble_exp.marginal(end,2),'mcmc_results_exp_220322.xlsx','sheet','ble','range','A40');
+writematrix(mcmc_ble_exp.marginal(end,2),'mcmc_results_exp.xlsx','sheet','ble','range','A40');
 
 writetable(mcmc_summary_exp_msv,'mcmc_results_exp.xlsx','sheet','msv');
-% writematrix(mcmc_msv_exp.marginal(end,2),'mcmc_results_exp_220322.xlsx','sheet','msv','range','A40');
+writematrix(mcmc_msv_exp.marginal(end,2),'mcmc_results_exp.xlsx','sheet','msv','range','A40');
 
 writetable(mcmc_summary_exp_var1,'mcmc_results_exp.xlsx','sheet','var1');
+writematrix(mcmc_var1_exp.marginal(end,2),'mcmc_results_exp.xlsx','sheet','var1','range','A40');
 
 writetable(mcmc_summary_exp_ar2,'mcmc_results_exp.xlsx','sheet','ar2');
-
+writematrix(mcmc_ar2_exp.marginal(end,2),'mcmc_results_exp.xlsx','sheet','ar2','range','A40');
 %% rational expectations models -- output files are from Dynare and have a different structure
 
 ree_noExp = load('mcmc_ree.mat');
