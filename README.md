@@ -89,17 +89,17 @@ The package is accompanied by a set of wrapper scripts to directly reproduce the
 
 **replicate_table_1_3.m**: uses routines in subfoldfer "MCMC_results" to replicate Tables 1 and 3. Note that this script does not re-run posterior mode estimation and MCMC simulations. It uses the provided databases in the following subfolders to compute the posterior moments and create the corresponding tables: 
 
-    posterior_mode/estimations_baseline/results/[model_name]_estimation_results.mat (posterior mode of baseline models in table 1)
+posterior_mode/estimations_baseline/results/[model_name]_estimation_results.mat (posterior mode of baseline models in table 1)
 
-    posterior_mode/estimation_with_exp/results/[model_name]_estimation_results.mat (posterior mode of models with inflation expectations in table 3)
+posterior_mode/estimation_with_exp/results/[model_name]_estimation_results.mat (posterior mode of models with inflation expectations in table 3)
 
-    posterior_mode/estimations_baseline/dynare_initial_beliefs/SW_Estimation_REE_results.mat (posterior mode with Dynare implementation of baseline RE model)
+posterior_mode/estimations_baseline/dynare_initial_beliefs/SW_Estimation_REE_results.mat (posterior mode with Dynare implementation of baseline RE model)
 
-    posterior_mode/estimations_with_exp/dynare_initial_beliefs/SW_Estimation_REE_expData.mat (posterior mode with Dynare implementation of RE model with inflation exp.)
+posterior_mode/estimations_with_exp/dynare_initial_beliefs/SW_Estimation_REE_expData.mat (posterior mode with Dynare implementation of RE model with inflation exp.)
 
-    MCMC_results/mcmc_baseline/mcmc_[model_name].mat (posterior distribution of baseline models in table 1)
+MCMC_results/mcmc_baseline/mcmc_[model_name].mat (posterior distribution of baseline models in table 1)
 
-    MCMC_results/mcmc_expectations/mcmc_[model_name].mat (posterior distribution of models with inflation expectations in table 3)
+MCMC_results/mcmc_expectations/mcmc_[model_name].mat (posterior distribution of models with inflation expectations in table 3)
 
 The routines used in the posterior mode estimation and MCMC simulations are explained in further detail below. 
 
