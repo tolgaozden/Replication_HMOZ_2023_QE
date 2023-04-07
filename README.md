@@ -118,20 +118,36 @@ The routines used in generating forecasts are explained in further detail below.
 
 ### Main sections:
 
-The package consists of 4 main sections. 
+The package consists of 6 main sections. 
 
-(1) posterior_mode: contains routines for posterior mode search of all models. This contains two subfolders: 
+(1) **3equation**: contains routines for computing some moments of the simple 3-equation New Keynesian model.
+
+**varratio.m**: computes and plots the variance ratios reported in figure 2 of the paper. 
+
+**blew.m**: computes the beta functions reported in figure 1 of the paper. 
+
+**beta2star_rho.m**: computes and plots and persistence as a function of shock persistence reported in figure 2 of the paper. 
+
+(2) **posterior_mode**: contains routines for posterior mode search of all models. This contains two subfolders: 
+
     1.1) estimations_baseline: contains routines for mode search of the baseline model specifications. 
-    1.2) esitmations_with_exp: contains routines for mode search of altenrative model specifications that use survey data on inflation expectations as an input. 
+    
+    1.2) estimations_with_exp: contains routines for mode search of altenrative model specifications that use survey data on inflation expectations as an input. 
 
 Each subfolder contains the following sections: 
 
  -results: contains the estimation and Kalman filter output files at the posterior mode in .mat format for each model under consideration. The estimation result files also contain information about which options should be used in the estimation routines to get the corresponding output. 
+ 
  -main_functions: contains the main routines to carry out the posterior mode search of the models under consideration. Further information about the contents of these routines are provided in "Background functions" section. 
+ 
  -inputs: contains .mat files that are used for initializing the estimation routines. 
+ 
  -helpers: contains some helper functions for optimization, reporting and specifying priors of estimated parameters. 
+ 
  -forecast_summary: contains .mat files with summary statistics of pseudo out-of-sample forecasting exercise. These databases also contain information about which options should be used in the estimation routines to get the corresponding output. 
+ 
  -dynare_initial_beliefs: contains Dynare routines to estimate the baseline rational expectation model. The results of the rational expectation model are used for initializing the beliefs of some of the adaptive learning models as well. 
+ 
  -Matfiles: contains some output files of the csminwel optimization routine. 
  
  ##### Background files: 
@@ -142,13 +158,66 @@ dynare_initial_beliefs/SW_Estimation_REE.mod: Dynare file for estimating the bas
  
 dynare_initial_beliefs/beliefs_initialization_[model_name].m: the scripts use the rational expectation model as an input and run an OLS regression from the RE-based simulation results to generate initial beliefs consistent with the underlying forecasting rule for each adaptive learning model. 
  
-main.m: this is the main wrapper for carrying out all posterior mode estimations. BLE and all adaptive learning models, as well as all underlying options related to belief initialization, timing of expectations, the use of projection facilities, which optimizer to use etc. are specified in this file. When estimation procedure is finished, the results are saved into results/estimation_results.mat under the default options. 
+**main.m**: this is the main wrapper for carrying out all posterior mode estimations. BLE and all adaptive learning models, as well as all underlying options related to belief initialization, timing of expectations, the use of projection facilities, which optimizer to use etc. are specified in this file. When estimation procedure is finished, the results are saved into results/estimation_results.mat under the default options. 
 
 For the results reported in the paper, the underlying posterior modes are saved under the names results/[model_name]estimation_results.mat for each model. These databases also contain the set of options that must be specified in main.m in order to obtain the corresponding results. 
  
-forecast_main.m: this is the main wrapper to carry out pseudo-out-of-sample forecasting exercises for all models. For each selected model, an estimation is carried out at each quarter to obtain the corresponding posterior mode. The forecasts are then generated under the obtained set of parameter values at each quarter. The estimation results at each quarter are saved into a database in subfolder auxiliary_files. The underlying posterior mode databases used in the paper are not provided due to space limitations. 
+**forecast_main.m**: this is the main wrapper to carry out pseudo-out-of-sample forecasting exercises for all models. For each selected model, an estimation is carried out at each quarter to obtain the corresponding posterior mode. The forecasts are then generated under the obtained set of parameter values at each quarter. The estimation results at each quarter are saved into a database in subfolder auxiliary_files. The underlying posterior mode databases used in the paper are not provided due to space limitations. 
 
 The summary statistics and key inputs needed for pseudo-out-of-sample forecasting of each model are stored in subfolder forecast_summary under the name forecast_output_[model_name].mat. 
+
+**forecast_tables.m**: produces forecast errors, RMSE's and the corresponding tables given the forecast output files generated by forecast_main.m. 
+
+**update_matrices.m**: Function that uses the system matrices and beliefs to calculate the recursive matrices of the model.  
+
+**update_beliefs.m**: Function that applies the belief updating step for a specified information set. 
+
+**sysmat_SW_model.m**: Script that specifies that symbolic system matrices associated with Smets Wouters model. 
+
+**symbolic_to_matrix_MSV.m**: Function that returns the symbolic system matrices associated with Smets Wouters model for a given set of model equations
+
+**SW_sysmat_MSV_filter.m**: Function s`that returns the system matrices associated with Smets Wouters model for a given set of parameter values.
+
+**SW_prior.m**: Function that specifies prior distributions of all estimated parameters for Smets Wouters model. 
+
+**SW_fixedPoint.m**: Function that uses the model object and finds the Behavioral Learning Equilibrium fixed-point associated with the model. 
+
+**REE_solve_uhlig.m**: Function that uses the model object and finds the Rational Expectations Equilibrium fixed-point associated with the model.
+
+**ree_auxiliary_retrieve_moments.m**: an auxiliary function to retrieve moments of Rational Expectations model for each forecast vintage. 
+
+**projection_facility.m**: Computes the projection facility for a model. Our version follows Slobodyan-Wouters approach here (which in turn is 
+based on previous learning literature), which amounts to ignoring the data from latest period if it leads to explosive dynamics. If the 
+largest eigenvalue exceeds 1, leave all variables at their previous value (i.e. ignore the last data) and flag the projection_facility=1. 
+Otherwise keep the updated values, and leave the flag unchanged (the flag may have been changed to 1 in previous steps if something else went wrong.)
+
+**point_forecast.m**: Returns up to xxx-step ahead forecasts given the model. 
+
+**plot_alphas_betas.m**: For estimated BLE and SAC-learning models, this script plots the estimated alphas and betas over history.
+
+**param_set.m**: Auxiliary file to do some re-ordering on the parameters and also set the fixed parameters. 
+
+**MSV_regression.m**: Runs a multicollinearity test for a specified matrix of data. 
+
+**msv_learning.m**: Generic function that applies the constant gain learning step for recursive least squares models for specified PLM. 
+
+**likelihood.m**: Calculates the likelihood of the model given the Kalman filter output and the prior distributions. 
+
+**kalmanSW.m**: Function that takes in data and model object, finds the recursive system associated with the equilibrium/learning model,
+runs it through the Kalman filter and returns the likelihood value. 
+
+**KF_output_MCMC.m**: Runs the Kalman filter for specified model for posterior distribution of estimated parameters. 
+
+**KF_output.m**: Same as KalmanSW.m in script form instead of function. 
+
+**cgl_learning_recursive.m**: This function is used for the updating step of the SAC-learning algorithm with AR(1) rule. 
+
+**initialize_BLE_fixed_model.m**: Function to specify initial beliefs associated with the estimated BLE model. 
+
+**AR1_BLE_initial_beliefs.m**: same as initialize_BLE_fixed_model.m
+
+ "helpers" subfolder contains a set of generic functions that are used for calculating moments/hessian matrices or prior distributions. 
+ 
  
 (2) MCMC_samplers: contains MCMC simulation codes for the models. Each model has a MetropolisHastings_[model_name].m script that starts the MCMC simulation. These scripts use the estimated posterior mode from (1) as candidate density to initialize the MCMC sampling. The covariance matrix of the proposal density is typically initialized with a diagonal matrix. This is followed by a short MCMC chain (5000 draws) to obtain a more reasonable covariance matrix, which is used for initializing a long MCMC chain that is used for computing the posterior moments reported in the paper.
 
@@ -389,8 +458,7 @@ Format: MATLAB file
 
 Format: MATLAB file
 
-[2.43] "helpers" subfolder contains a set of generic functions that are used for calculating moments/hessian matrices or prior distributions. 
- 
+
 Format: MATLAB file
 
 
