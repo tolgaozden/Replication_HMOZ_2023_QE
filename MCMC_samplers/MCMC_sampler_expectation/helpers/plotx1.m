@@ -27,7 +27,7 @@ set(hh,'facecolor',[0.75 0.75 1]);
 
 hold on;
 
-plot(h,y(:,1),'--','LineWidth',1);
+plot(h,y(:,1),'-','LineWidth',1.5);
 
 % hold on;
 % 

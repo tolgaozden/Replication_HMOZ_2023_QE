@@ -1,9 +1,9 @@
 var   
  mc zcap rk k q  c inve y lab pinf w r kp eps_a  eps_b eps_g eps_i  eps_r  eps_p eps_w pinf_exp 
 labobs robs cpi_quarterly dy dc dinve dw inf_fore_1_4
-pinf_exp_noshock
-pinf_exp_tt1 
-;    
+pinf_exp_noshock1 pinf_exp_noshock2 pinf_exp_noshock3 pinf_exp_noshock4
+pinf_exp_tt1 pinf_exp_tt2 pinf_exp_tt3 pinf_exp_tt4  
+;     
  
 varexo eta_a eta_b eta_g eta_i  eta_r  eta_p eta_w eta_pi_exp ;  
  
@@ -126,9 +126,17 @@ model(linear);
 	         
 	      kp =  (1-cikbar)*kp(-1)+cikbar*inve + cikbar*gamma^2*phi*eps_i ;
           
-          pinf_exp = pinf(+4) + eta_pi_exp;
-          pinf_exp_noshock = pinf(+4);
-          pinf_exp_tt1 = pinf_exp_noshock(-1);
+          pinf_exp = pinf(+1) + eta_pi_exp;
+
+          pinf_exp_noshock1 = pinf(+1);
+          pinf_exp_noshock2 = pinf(+2);
+          pinf_exp_noshock3 = pinf(+3);
+          pinf_exp_noshock4 = pinf(+4);
+
+          pinf_exp_tt1 = pinf_exp_noshock1(-1);
+          pinf_exp_tt2 = pinf_exp_noshock2(-1);
+          pinf_exp_tt3 = pinf_exp_noshock3(-1);
+          pinf_exp_tt4 = pinf_exp_noshock4(-1);
 
 %           pinf_exp =  0.735910979240632 * pinf(-1) + eta_pi_exp;
         
