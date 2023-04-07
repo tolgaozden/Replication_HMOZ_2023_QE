@@ -26,36 +26,36 @@ https://fred.stlouisfed.org/series/CPIAUCSL
 
 The variable mnemonics contained in the database are as follows: 
     
-    [cpi_quarterly]: U.S. CPI inflation (quarter/quarter change). 
+[cpi_quarterly]: U.S. CPI inflation (quarter/quarter change). 
 
-    [dc]: U.S. consumption growth rate(quarter/quarter change). 
+[dc]: U.S. consumption growth rate(quarter/quarter change). 
 
-    [dinve]: U.S. business investment growth rate (quarter/quarter change). 
+[dinve]: U.S. business investment growth rate (quarter/quarter change). 
 
-    [dw]: U.S. wage growth rate (quarter/quarter change). 
+[dw]: U.S. wage growth rate (quarter/quarter change). 
 
-    [dy]: U.S. output growth rate (quarter/quarter change). 
+[dy]: U.S. output growth rate (quarter/quarter change). 
 
-    [hours]: U.S. average hours worked. 
+[hours]: U.S. average hours worked. 
 
-    [labobs]: U.S. average hours worked (normalized). 
+[labobs]: U.S. average hours worked (normalized). 
 
-    [pinfobs]: U.S. GDP deflator inflation (quarter/quarter change). 
+[pinfobs]: U.S. GDP deflator inflation (quarter/quarter change). 
 
-    [robs]: U.S. FED funds rate (quarterly rate). 
+[robs]: U.S. FED funds rate (quarterly rate). 
 
 2. "expectations_dataset.mat" contains the same variables as above, with some additional time series on inflation expectations. These are taken from the Survey of Professional Forecasters of Philadelphia Fed, see https://www.philadelphiafed.org/surveys-and-data/real-time-data-research/survey-of-professional-forecasters for 
 further details. The additional variable mnemonics related to inflation expectations are as follows: 
 
-    [cpi_annualized]: Annualized rate of cpi_quarterly (i.e. 4 * cpi_quarterly). 
+[cpi_annualized]: Annualized rate of cpi_quarterly (i.e. 4 * cpi_quarterly). 
     
-    [inf_exp_1_step]: 1-quarter ahead CPI inflation expectations from Survey of Professional Forecasters. Database: Median Forecast Data for Levels, CPI Table, Mnemonic "CPI3". 
+[inf_exp_1_step]: 1-quarter ahead CPI inflation expectations from Survey of Professional Forecasters. Database: Median Forecast Data for Levels, CPI Table, Mnemonic "CPI3". 
 
-    [inf_exp_2_step]: 2-quarter ahead CPI inflation expectations from Survey of Professional Forecasters. Database: Median Forecast Data for Levels, CPI Table, Mnemonic "CPI4". 
+[inf_exp_2_step]: 2-quarter ahead CPI inflation expectations from Survey of Professional Forecasters. Database: Median Forecast Data for Levels, CPI Table, Mnemonic "CPI4". 
 
-    [inf_exp_3_step]: 3-quarter ahead CPI inflation expectations from Survey of Professional Forecasters. Database: Median Forecast Data for Levels, CPI Table, Mnemonic "CPI5". 
+[inf_exp_3_step]: 3-quarter ahead CPI inflation expectations from Survey of Professional Forecasters. Database: Median Forecast Data for Levels, CPI Table, Mnemonic "CPI5". 
 
-    [inf_exp_4_step]: 4-quarter ahead CPI inflation expectations from Survey of Professional Forecasters. Database: Median Forecast Data for Levels, CPI Table, Mnemonic "CPI6". 
+[inf_exp_4_step]: 4-quarter ahead CPI inflation expectations from Survey of Professional Forecasters. Database: Median Forecast Data for Levels, CPI Table, Mnemonic "CPI6". 
 
 
 
