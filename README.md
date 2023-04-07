@@ -130,39 +130,39 @@ The package consists of 6 main sections.
 
 (2) **posterior_mode**: contains routines for posterior mode search of all models. This contains two subfolders: 
 
-    2.1) estimations_baseline: contains routines for mode search of the baseline model specifications. 
+2.1) estimations_baseline: contains routines for mode search of the baseline model specifications. 
     
-    2.2) estimations_with_exp: contains routines for mode search of altenrative model specifications that use survey data on inflation expectations as an input. 
+2.2) estimations_with_exp: contains routines for mode search of altenrative model specifications that use survey data on inflation expectations as an input. 
 
 Each subfolder contains the following sections: 
 
-    -results: contains the estimation and Kalman filter output files at the posterior mode in .mat format for each model under consideration. The estimation result files also contain information about which options should be used in the estimation routines to get the corresponding output. 
+-results: contains the estimation and Kalman filter output files at the posterior mode in .mat format for each model under consideration. The estimation result files also contain information about which options should be used in the estimation routines to get the corresponding output. 
  
-     -main_functions: contains the main routines to carry out the posterior mode search of the models under consideration. Further information about the contents of these routines are provided in "Background functions" section. 
+-main_functions: contains the main routines to carry out the posterior mode search of the models under consideration. Further information about the contents of these routines are provided in "Background functions" section. 
  
-    -inputs: contains .mat files that are used for initializing the estimation routines. 
+-inputs: contains .mat files that are used for initializing the estimation routines. 
  
-    -helpers: contains some helper functions for optimization, reporting and specifying priors of estimated parameters. 
+-helpers: contains some helper functions for optimization, reporting and specifying priors of estimated parameters. 
  
-    -forecast_summary: contains .mat files with summary statistics of pseudo out-of-sample forecasting exercise. These databases also contain information about which options should be used in the estimation routines to get the corresponding output. 
+-forecast_summary: contains .mat files with summary statistics of pseudo out-of-sample forecasting exercise. These databases also contain information about which options should be used in the estimation routines to get the corresponding output. 
  
-    -dynare_initial_beliefs: contains Dynare routines to estimate the baseline rational expectation model. The results of the rational expectation model are used for initializing the beliefs of some of the adaptive learning models as well. 
+-dynare_initial_beliefs: contains Dynare routines to estimate the baseline rational expectation model. The results of the rational expectation model are used for initializing the beliefs of some of the adaptive learning models as well. 
  
-    -Matfiles: contains some output files of the csminwel optimization routine. 
+-Matfiles: contains some output files of the csminwel optimization routine. 
  
  ##### Background files: 
  
-dynare_initial_beliefs/slobodyan_dataset.mat: main database used in estimations with historical data on U.S. This database is taken from the replication package of Slobodyan and Wouters (2012, AEJ:Macro). See the section on data information for further details. 
+    dynare_initial_beliefs/slobodyan_dataset.mat: main database used in estimations with historical data on U.S. This database is taken from the replication package of Slobodyan and Wouters (2012, AEJ:Macro). See the section on data information for further details. 
  
-dynare_initial_beliefs/SW_Estimation_REE.mod: Dynare file for estimating the baseline rational expectations model. The results of this file are also used for initializing beliefs for some of the adaptive learning models. 
+    dynare_initial_beliefs/SW_Estimation_REE.mod: Dynare file for estimating the baseline rational expectations model. The results of this file are also used for initializing beliefs for some of the adaptive learning models. 
  
-dynare_initial_beliefs/beliefs_initialization_[model_name].m: the scripts use the rational expectation model as an input and run an OLS regression from the RE-based simulation results to generate initial beliefs consistent with the underlying forecasting rule for each adaptive learning model. 
+    dynare_initial_beliefs/beliefs_initialization_[model_name].m: the scripts use the rational expectation model as an input and run an OLS regression from the RE-based simulation results to generate initial beliefs consistent with the underlying forecasting rule for each adaptive learning model. 
  
-**main.m**: this is the main wrapper for carrying out all posterior mode estimations. BLE and all adaptive learning models, as well as all underlying options related to belief initialization, timing of expectations, the use of projection facilities, which optimizer to use etc. are specified in this file. When estimation procedure is finished, the results are saved into results/estimation_results.mat under the default options. 
+    **main.m**: this is the main wrapper for carrying out all posterior mode estimations. BLE and all adaptive learning models, as well as all underlying options related to belief initialization, timing of expectations, the use of projection facilities, which optimizer to use etc. are specified in this file. When estimation procedure is finished, the results are saved into results/estimation_results.mat under the default options. 
 
 For the results reported in the paper, the underlying posterior modes are saved under the names results/[model_name]estimation_results.mat for each model. These databases also contain the set of options that must be specified in main.m in order to obtain the corresponding results. 
  
-**forecast_main.m**: this is the main wrapper to carry out pseudo-out-of-sample forecasting exercises for all models. For each selected model, an estimation is carried out at each quarter to obtain the corresponding posterior mode. The forecasts are then generated under the obtained set of parameter values at each quarter. The estimation results at each quarter are saved into a database in subfolder auxiliary_files. The underlying posterior mode databases used in the paper are not provided due to space limitations. 
+    **forecast_main.m**: this is the main wrapper to carry out pseudo-out-of-sample forecasting exercises for all models. For each selected model, an estimation is carried out at each quarter to obtain the corresponding posterior mode. The forecasts are then generated under the obtained set of parameter values at each quarter. The estimation results at each quarter are saved into a database in subfolder auxiliary_files. The underlying posterior mode databases used in the paper are not provided due to space limitations. 
 
 The summary statistics and key inputs needed for pseudo-out-of-sample forecasting of each model are stored in subfolder forecast_summary under the name forecast_output_[model_name].mat. 
 
