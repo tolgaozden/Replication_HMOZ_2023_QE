@@ -25,37 +25,37 @@ In this study we use q/q CPI inflation as our measure of inflation. This is retr
 https://fred.stlouisfed.org/series/CPIAUCSL
 
 The variable mnemonics contained in the database are as follows: 
+    
+    [cpi_quarterly]: U.S. CPI inflation (quarter/quarter change). 
 
-[cpi_quarterly]: U.S. CPI inflation (quarter/quarter change). 
+    [dc]: U.S. consumption growth rate(quarter/quarter change). 
 
-[dc]: U.S. consumption growth rate(quarter/quarter change). 
+    [dinve]: U.S. business investment growth rate (quarter/quarter change). 
 
-[dinve]: U.S. business investment growth rate (quarter/quarter change). 
+    [dw]: U.S. wage growth rate (quarter/quarter change). 
 
-[dw]: U.S. wage growth rate (quarter/quarter change). 
+    [dy]: U.S. output growth rate (quarter/quarter change). 
 
-[dy]: U.S. output growth rate (quarter/quarter change). 
+    [hours]: U.S. average hours worked. 
 
-[hours]: U.S. average hours worked. 
+    [labobs]: U.S. average hours worked (normalized). 
 
-[labobs]: U.S. average hours worked (normalized). 
+    [pinfobs]: U.S. GDP deflator inflation (quarter/quarter change). 
 
-[pinfobs]: U.S. GDP deflator inflation (quarter/quarter change). 
-
-[robs]: U.S. FED funds rate (quarterly rate). 
+    [robs]: U.S. FED funds rate (quarterly rate). 
 
 2. "expectations_dataset.mat" contains the same variables as above, with some additional time series on inflation expectations. These are taken from the Survey of Professional Forecasters of Philadelphia Fed, see https://www.philadelphiafed.org/surveys-and-data/real-time-data-research/survey-of-professional-forecasters for 
 further details. The additional variable mnemonics related to inflation expectations are as follows: 
 
-[cpi_annualized]: Annualized rate of cpi_quarterly (i.e. 4 * cpi_quarterly). 
+    [cpi_annualized]: Annualized rate of cpi_quarterly (i.e. 4 * cpi_quarterly). 
 
-[inf_exp_1_step]: 1-quarter ahead CPI inflation expectations from Survey of Professional Forecasters. Database: Median Forecast Data for Levels, CPI Table, Mnemonic "CPI3". 
+    [inf_exp_1_step]: 1-quarter ahead CPI inflation expectations from Survey of Professional Forecasters. Database: Median Forecast Data for Levels, CPI Table, Mnemonic "CPI3". 
 
-[inf_exp_2_step]: 2-quarter ahead CPI inflation expectations from Survey of Professional Forecasters. Database: Median Forecast Data for Levels, CPI Table, Mnemonic "CPI4". 
+    [inf_exp_2_step]: 2-quarter ahead CPI inflation expectations from Survey of Professional Forecasters. Database: Median Forecast Data for Levels, CPI Table, Mnemonic "CPI4". 
 
-[inf_exp_3_step]: 3-quarter ahead CPI inflation expectations from Survey of Professional Forecasters. Database: Median Forecast Data for Levels, CPI Table, Mnemonic "CPI5". 
+    [inf_exp_3_step]: 3-quarter ahead CPI inflation expectations from Survey of Professional Forecasters. Database: Median Forecast Data for Levels, CPI Table, Mnemonic "CPI5". 
 
-[inf_exp_4_step]: 4-quarter ahead CPI inflation expectations from Survey of Professional Forecasters. Database: Median Forecast Data for Levels, CPI Table, Mnemonic "CPI6". 
+    [inf_exp_4_step]: 4-quarter ahead CPI inflation expectations from Survey of Professional Forecasters. Database: Median Forecast Data for Levels, CPI Table, Mnemonic "CPI6". 
 
 
 
@@ -89,17 +89,17 @@ The package is accompanied by a set of wrapper scripts to directly reproduce the
 
 **replicate_table_1_3.m**: uses routines in subfoldfer "MCMC_results" to replicate Tables 1 and 3. Note that this script does not re-run posterior mode estimation and MCMC simulations. It uses the provided databases in the following subfolders to compute the posterior moments and create the corresponding tables: 
 
-posterior_mode/estimations_baseline/results/[model_name]_estimation_results.mat (posterior mode of baseline models in table 1)
+    posterior_mode/estimations_baseline/results/[model_name]_estimation_results.mat (posterior mode of baseline models in table 1)
 
-posterior_mode/estimation_with_exp/results/[model_name]_estimation_results.mat (posterior mode of models with inflation expectations in table 3)
+    posterior_mode/estimation_with_exp/results/[model_name]_estimation_results.mat (posterior mode of models with inflation expectations in table 3)
 
-posterior_mode/estimations_baseline/dynare_initial_beliefs/SW_Estimation_REE_results.mat (posterior mode with Dynare implementation of baseline RE model)
+    posterior_mode/estimations_baseline/dynare_initial_beliefs/SW_Estimation_REE_results.mat (posterior mode with Dynare implementation of baseline RE model)
 
-posterior_mode/estimations_with_exp/dynare_initial_beliefs/SW_Estimation_REE_expData.mat (posterior mode with Dynare implementation of RE model with inflation exp.)
+    posterior_mode/estimations_with_exp/dynare_initial_beliefs/SW_Estimation_REE_expData.mat (posterior mode with Dynare implementation of RE model with inflation exp.)
 
-MCMC_results/mcmc_baseline/mcmc_[model_name].mat (posterior distribution of baseline models in table 1)
+    MCMC_results/mcmc_baseline/mcmc_[model_name].mat (posterior distribution of baseline models in table 1)
 
-MCMC_results/mcmc_expectations/mcmc_[model_name].mat (posterior distribution of models with inflation expectations in table 3)
+    MCMC_results/mcmc_expectations/mcmc_[model_name].mat (posterior distribution of models with inflation expectations in table 3)
 
 The routines used in the posterior mode estimation and MCMC simulations are explained in further detail below. 
 
@@ -152,17 +152,17 @@ Each subfolder contains the following sections:
  
  ##### Background files: 
  
-    dynare_initial_beliefs/slobodyan_dataset.mat: main database used in estimations with historical data on U.S. This database is taken from the replication package of Slobodyan and Wouters (2012, AEJ:Macro). See the section on data information for further details. 
+dynare_initial_beliefs/slobodyan_dataset.mat: main database used in estimations with historical data on U.S. This database is taken from the replication package of Slobodyan and Wouters (2012, AEJ:Macro). See the section on data information for further details. 
  
-    dynare_initial_beliefs/SW_Estimation_REE.mod: Dynare file for estimating the baseline rational expectations model. The results of this file are also used for initializing beliefs for some of the adaptive learning models. 
+dynare_initial_beliefs/SW_Estimation_REE.mod: Dynare file for estimating the baseline rational expectations model. The results of this file are also used for initializing beliefs for some of the adaptive learning models. 
  
-    dynare_initial_beliefs/beliefs_initialization_[model_name].m: the scripts use the rational expectation model as an input and run an OLS regression from the RE-based simulation results to generate initial beliefs consistent with the underlying forecasting rule for each adaptive learning model. 
+dynare_initial_beliefs/beliefs_initialization_[model_name].m: the scripts use the rational expectation model as an input and run an OLS regression from the RE-based simulation results to generate initial beliefs consistent with the underlying forecasting rule for each adaptive learning model. 
  
-    **main.m**: this is the main wrapper for carrying out all posterior mode estimations. BLE and all adaptive learning models, as well as all underlying options related to belief initialization, timing of expectations, the use of projection facilities, which optimizer to use etc. are specified in this file. When estimation procedure is finished, the results are saved into results/estimation_results.mat under the default options. 
+**main.m**: this is the main wrapper for carrying out all posterior mode estimations. BLE and all adaptive learning models, as well as all underlying options related to belief initialization, timing of expectations, the use of projection facilities, which optimizer to use etc. are specified in this file. When estimation procedure is finished, the results are saved into results/estimation_results.mat under the default options. 
 
 For the results reported in the paper, the underlying posterior modes are saved under the names results/[model_name]estimation_results.mat for each model. These databases also contain the set of options that must be specified in main.m in order to obtain the corresponding results. 
  
-    **forecast_main.m**: this is the main wrapper to carry out pseudo-out-of-sample forecasting exercises for all models. For each selected model, an estimation is carried out at each quarter to obtain the corresponding posterior mode. The forecasts are then generated under the obtained set of parameter values at each quarter. The estimation results at each quarter are saved into a database in subfolder auxiliary_files. The underlying posterior mode databases used in the paper are not provided due to space limitations. 
+**forecast_main.m**: this is the main wrapper to carry out pseudo-out-of-sample forecasting exercises for all models. For each selected model, an estimation is carried out at each quarter to obtain the corresponding posterior mode. The forecasts are then generated under the obtained set of parameter values at each quarter. The estimation results at each quarter are saved into a database in subfolder auxiliary_files. The underlying posterior mode databases used in the paper are not provided due to space limitations. 
 
 The summary statistics and key inputs needed for pseudo-out-of-sample forecasting of each model are stored in subfolder forecast_summary under the name forecast_output_[model_name].mat. 
 
