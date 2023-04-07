@@ -130,25 +130,25 @@ The package consists of 6 main sections.
 
 (2) **posterior_mode**: contains routines for posterior mode search of all models. This contains two subfolders: 
 
-    1.1) estimations_baseline: contains routines for mode search of the baseline model specifications. 
+    2.1) estimations_baseline: contains routines for mode search of the baseline model specifications. 
     
-    1.2) estimations_with_exp: contains routines for mode search of altenrative model specifications that use survey data on inflation expectations as an input. 
+    2.2) estimations_with_exp: contains routines for mode search of altenrative model specifications that use survey data on inflation expectations as an input. 
 
 Each subfolder contains the following sections: 
 
- -results: contains the estimation and Kalman filter output files at the posterior mode in .mat format for each model under consideration. The estimation result files also contain information about which options should be used in the estimation routines to get the corresponding output. 
+    -results: contains the estimation and Kalman filter output files at the posterior mode in .mat format for each model under consideration. The estimation result files also contain information about which options should be used in the estimation routines to get the corresponding output. 
  
- -main_functions: contains the main routines to carry out the posterior mode search of the models under consideration. Further information about the contents of these routines are provided in "Background functions" section. 
+     -main_functions: contains the main routines to carry out the posterior mode search of the models under consideration. Further information about the contents of these routines are provided in "Background functions" section. 
  
- -inputs: contains .mat files that are used for initializing the estimation routines. 
+    -inputs: contains .mat files that are used for initializing the estimation routines. 
  
- -helpers: contains some helper functions for optimization, reporting and specifying priors of estimated parameters. 
+    -helpers: contains some helper functions for optimization, reporting and specifying priors of estimated parameters. 
  
- -forecast_summary: contains .mat files with summary statistics of pseudo out-of-sample forecasting exercise. These databases also contain information about which options should be used in the estimation routines to get the corresponding output. 
+    -forecast_summary: contains .mat files with summary statistics of pseudo out-of-sample forecasting exercise. These databases also contain information about which options should be used in the estimation routines to get the corresponding output. 
  
- -dynare_initial_beliefs: contains Dynare routines to estimate the baseline rational expectation model. The results of the rational expectation model are used for initializing the beliefs of some of the adaptive learning models as well. 
+    -dynare_initial_beliefs: contains Dynare routines to estimate the baseline rational expectation model. The results of the rational expectation model are used for initializing the beliefs of some of the adaptive learning models as well. 
  
- -Matfiles: contains some output files of the csminwel optimization routine. 
+    -Matfiles: contains some output files of the csminwel optimization routine. 
  
  ##### Background files: 
  
