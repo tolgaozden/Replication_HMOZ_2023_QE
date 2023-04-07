@@ -1,5 +1,11 @@
 clear;
 
+%inputs: 
+
+%estimation results at the posterior mode for ble and sac models. 
+%the results reported in the paper are based on the files in 
+%posterior_mode/estimations_with_exp/results
+
 ble_database = load('posterior_mode/estimations_with_exp/results/ble_kf_output.mat');
 sac_database = load('posterior_mode/estimations_with_exp/results/sac_kf_output.mat');
 

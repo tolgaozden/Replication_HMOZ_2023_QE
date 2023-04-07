@@ -2,6 +2,24 @@ clear;
 clc;
 
 
+% inputs: 
+%estimation results at the posterior mode
+%should be stored in the subfolder optimal_policy/codes/results
+
+% outputs: 
+
+% the results with optimal policy parameters are printed out on the command
+% window when simulations are finished running. 
+
+% the figure with standard deviations as a function of smoothing is stored
+% under optimal_policy/figures 
+
+% the output files are stored in db_[model_name]_smoothing.mat in
+% optimal_policy folder. 
+
+
+
+
 cd('optimal_policy');
 addpath(genpath(cd));
 
