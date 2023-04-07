@@ -261,6 +261,16 @@ A wrapper script run_me_mcmc_results.m collects all MCMC simulations and compute
  
 #### Background functions: 
 
+**smoothing_plots_all.m**: retrieves results from db_[model_name]_smoothing.m and generates the optimal smoothing table, and standard deviations of key variables as a function of smoothing. 
+
+**reports_[model_name]_smoothing.m**: retrieves simulation results from optimal_policy/simulations and converts them into a plot-ready format, saving the results into db_[model_name]_smoothing.mat. 
+
+**optimal_policy_smoothing_[model_name].m**: a wrapper script for each model to specify the model properties. The script then launches MC simulations over a parameter grid and returns the simulated series, along with optimal parameter values for specified objective function values. The results are saved into a database in optimal_policy/simulations.
+
+**simulation_main.m**: simulates a given model with specified options over a parameter grid. 
+
+**simulation_main_ree.m**: same as above, for the rational expectations model. 
+
 
 
 
