@@ -2,93 +2,83 @@ clear all
 % close all
 hold off
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%% Contemporanous Taylor rule
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%%%%% shown in our paper %%%%%%%%%%%%%%%%%% 
-rho=[0.3,0.32,0.35,0.38,0.4,0.45,0.5:0.05:0.95,0.9999];
-var1=[ 0.6649,0.6703,0.7269,0.8780, 1.0068, 1.3465,1.6718,1.9618, 2.2095, 2.4061,2.5432, 2.6065,2.5786, 2.4304, 2.1370,1.6755,1.0002];
-var2=[0.6367,0.6856,0.9296,1.4497,1.8099, 2.5448,3.0737,3.4320,3.6478, 3.7306,3.6879, 3.5207,3.2382,2.8357, 2.3279,  1.7274,1.0009];
-rhoq=0.3:0.01:0.9999;
-var1q=interp1(rho, var1, rhoq,'pchip');
-var2q=interp1(rho, var2, rhoq,'pchip');
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%This code is used to calculate the ratio of varances of output
+% gap and inflation at BLE and REE in Figure 2(b).
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+stvepi=0.5;
+stvey=1; 
+gamma=0.04;
+varphi=1;
+phipi=1.5;
+phiy=0.5;
+lambda=0.99;
+
+rhov=[0.35,0.38,0.4,0.45,0.5:0.05:0.95,0.9999];
+%The followong beta^* are obtained from beta2star_rho.m%
+beta1starv=[ 0.5857,0.7023, 0.7609,0.8513, 0.8999,0.9294, 0.949, 0.9628, 0.973, 0.9808,  0.9868,0.9915,  0.9952,0.998,1 ];
+beta2starv=[0.7529, 0.8622,0.898, 0.94,   0.9592, 0.9704, 0.9779,0.9833,0.9874,0.9906,0.9932,0.9953, 0.9971,0.9987,1];
+
+B=[1, varphi*(1-lambda*phipi); gamma, gamma*varphi+lambda*(1+varphi*phiy)]/(1+gamma*varphi*phipi+varphi*phiy);
+C=[1, -varphi*phipi; gamma, 1+varphi*phiy]/(1+gamma*varphi*phipi+varphi*phiy);
+Sigmae=[stvey^2,0;0,stvepi^2];
+ 
+for i=1:15;
+rho=rhov(i);
+beta1=beta1starv(i);
+beta2=beta2starv(i);
+beta=[beta1, 0; 0, beta2]; 
+
+Sigma1=1/(1-rho^2)*inv(eye(2)-rho*B)*C*Sigmae*(inv(eye(2)-rho*B)*C)';  % variance at REE
+
+%%The following expresssions are based on the theoretical results, which are used to calculate the variances of the system at BLE%%
+lambda1=(beta1^2+(gamma*varphi+lambda+lambda*varphi*phiy)*beta2^2+sqrt((beta1^2+(gamma*varphi+lambda+lambda*varphi*phiy)*beta2^2)^2-4*lambda*beta1^2*beta2^2*(1+gamma*varphi*phipi+varphi*phiy)))/(2*(1+gamma*varphi*phipi+varphi*phiy));
+lambda2=(beta1^2+(gamma*varphi+lambda+lambda*varphi*phiy)*beta2^2-sqrt((beta1^2+(gamma*varphi+lambda+lambda*varphi*phiy)*beta2^2)^2-4*lambda*beta1^2*beta2^2*(1+gamma*varphi*phipi+varphi*phiy)))/(2*(1+gamma*varphi*phipi+varphi*phiy));
+
+delta=varphi*(1-lambda*phipi)*beta2^2*(lambda2-lambda1);
+mhat=delta*(rho-lambda1)*(rho-lambda2);
+khat=1/((mhat*(1+gamma*varphi*phipi+varphi*phiy)*delta)^2);
+
+t=(beta1^2+(gamma*varphi+lambda*(1+varphi*phiy))*beta2^2)/(1+gamma*varphi*phipi+varphi*phiy);
+d=lambda*beta1^2*beta2^2/(1+gamma*varphi*phipi+varphi*phiy);
+d1=rho+t;
+d2=rho*d;
+d3=(rho*t+d);
+
+b1=1;
+b2=lambda*beta2^2;
+c1=varphi*phipi;
+c2=varphi*beta2^2;
+dd2=stvey^2*(b1^2+b2^2-2*b1*b2*d1+(b1^2+b2^2)*d3-d2*((b1^2+b2^2)*d1-2*b1*b2*d3+(b1^2+b2^2)*d2))+stvepi^2*(c1^2+c2^2-2*c1*c2*d1+(c1^2+c2^2)*d3-d2*((c1^2+c2^2)*d1-2*c1*c2*d3+(c1^2+c2^2)*d2));
+
+b1=-gamma;
+b2=0;
+c1=1+varphi*phiy;
+c2=beta1^2;
+dd22=stvey^2*(b1^2+b2^2-2*b1*b2*d1+(b1^2+b2^2)*d3-d2*((b1^2+b2^2)*d1-2*b1*b2*d3+(b1^2+b2^2)*d2))+stvepi^2*(c1^2+c2^2-2*c1*c2*d1+(c1^2+c2^2)*d3-d2*((c1^2+c2^2)*d1-2*c1*c2*d3+(c1^2+c2^2)*d2));
+
+vary=khat*(delta^4*(rho-lambda2)^2*(rho-lambda1)^2/((1-rho^2)*(1-rho*lambda1)*(1-lambda1^2)*(1-rho*lambda2)*(1-lambda2^2)*(1-lambda1*lambda2)))*dd2;
+varpi=khat*(delta^4*(rho-lambda2)^2*(rho-lambda1)^2/((1-rho^2)*(1-rho*lambda1)*(1-lambda1^2)*(1-rho*lambda2)*(1-lambda2^2)*(1-lambda1*lambda2)))*dd22;
+
+%%The following two expressions are used to calculate the ratio of variances at BLE and at REE%%
+varratioy_BLEvsREE(i)=vary/Sigma1(1,1);
+varratiopi_BLEvsREE(i)=varpi/Sigma1(2,2);
+end
+
+rhoq=0.35:0.01:0.9999;
+Ratio_vary=interp1(rhov, varratioy_BLEvsREE, rhoq,'pchip');
+Ratio_varpi=interp1(rhov, varratiopi_BLEvsREE, rhoq,'pchip');
 
 
-plot(rhoq, var1q,'b-',rhoq, var2q,'r-',rhoq,ones(length(rhoq)),'g--')
+plot(rhoq, Ratio_vary,'b-',rhoq, Ratio_varpi,'r-',rhoq,ones(length(rhoq)),'g--')
 xlabel('\rho') 
 ylabel('{\sigma^2_{i,BLE}}/{\sigma^2_{i,REE}}')
+axis([0.35 1 0.5 4.5])
 
 
 
-
-
-
-
-
-
-
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%% Woodford calibration
-
-% % figure(1)
-% % phipi=[0.8:0.1:1.2, 1.4:0.2:2];0.9929, 0.9962
-% 
-% rho=[0.4:0.1:0.6,0.7,0.8,0.9, 0.999];
-% beta1star=[1.1473,1.7628,2.2664,2.6215,2.7221,2.3659,1.0348];
-% plot(rho, beta1star,'b.-',rho,ones(length(rho)),'r--')
-% xlabel('\rho') 
-% ylabel('\sigma_x^2/\sigma_{x^*}^2','Rotation',0)
-% hold on 
-% % 
-% % figure(2)
-% % phipi=[0.8:0.1:1.2, 1.4:0.2:2];
-% beta1=0.4:0.05:1;
-% rho=[0.4:0.1:0.6,0.7,0.8,0.9, 0.999];
-% beta2star=[2.0132,3.8182,4.7791, 4.9809,4.4043,3.1044,1.0383];
-% plot(rho, beta2star,'g.-',rho,ones(length(rho)),'r--')
-% xlabel('\rho') 
-% ylabel('\sigma_{x_i}^2/\sigma_{x_i^*}^2','Rotation',0)
-% % hold on 
-
-% 
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% %%% our own calibration with gamma=0.075, varphi=1;
-% phipi=1.5;phiy=0.5;lambda=0.99, \sigma_\pi/\sigma_y=1
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% % figure(1)
-% % phipi=[0.8:0.1:1.2, 1.4:0.2:2];0.9929, 0.9962
-% 
-% rho=[0.4:0.1:0.6,0.8,0.999];
-% beta1star=[0.9347,1.5124,1.9315,2.0456,1.0136];
-% beta2star=[1.1046, 1.8398,2.2594, 2.1738,1.0145];
-% plot(rho, beta1star,'b.-',rho, beta2star,'r.-',rho,ones(length(rho)),'g--')
-% xlabel('\rho') 
-% ylabel('\sigma_x^2/\sigma_{x^*}^2','Rotation',0)
-
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%% Contemporanous Taylor rule
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%% our own calibration with gamma=0.075, varphi=1;
-%%% phipi=1.5;phiy=0.5;lambda=0.99,\sigma_\pi/\sigma_y=1
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% figure(1)
-
-
-% rho=[0.4:0.1:0.6,0.8,0.999];
-% beta1star=[1.1470,2.3946,3.5082, 3.4078, 1.0154];
-% beta2star=[1.2758,1.9447,2.2453,2.0470,1.0123];
-% plot(rho, beta1star,'b.-',rho, beta2star,'r.-',rho,ones(length(rho)),'g--')
-% xlabel('\rho') 
-% ylabel('\sigma_x^2/\sigma_{x^*}^2','Rotation',0)
 
 
 
