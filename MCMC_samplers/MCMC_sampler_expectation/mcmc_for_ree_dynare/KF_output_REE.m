@@ -1,7 +1,7 @@
 clear;
 clc;
 
-addpath('/apps/matlab/matlab2020a/dynare-4.6.1/matlab');
+%addpath('/apps/matlab/matlab2020a/dynare-4.6.1/matlab');
 
 addpath('SW_Estimation_REE_expData')
 
@@ -126,7 +126,7 @@ plot(date_tt,inf_exp_1_step,'color','red','lineWidth',1);
 % yyaxis right;
 
 ll=legend('Model-implied, HPD interval','Model-implied, Median','CPI Inflation','SPF Expectations');
-ll.Position=[0.457821830350871 0.771546422400264 0.445703508018660 0.154028441563225];
+%ll.Position=[0.457821830350871 0.771546422400264 0.445703508018660 0.154028441563225];
 % legend('model-implied','empirical');
 % yyaxis left ;ylim([-1 16]);
 % yyaxis right ;
@@ -136,6 +136,6 @@ set(gca,'FontSize',15)
 xlabel('Year');
 % str_ = strcat(['rmse of inflation expectations: ', num2str(rmse_inf_exp)]);
 % title(str_);
-generate_figures('ree_exp_1step_inflation','figures');
+%generate_figures('ree_exp_1step_inflation','figures');
 
 % corr(inf_fore_1(ll_dif+1:end),infl_exp(ll_dif+1:end))
