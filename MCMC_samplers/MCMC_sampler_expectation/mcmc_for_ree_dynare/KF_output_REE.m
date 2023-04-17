@@ -4,6 +4,7 @@ clc;
 %addpath('/apps/matlab/matlab2020a/dynare-4.6.1/matlab');
 
 addpath('SW_Estimation_REE_expData')
+addpath('helpers')
 
 mcmc_part1=load('SW_Estimation_REE_expData/metropolis/SW_Estimation_REE_expData_mh1_blck1.mat');
 mcmc_part2=load('SW_Estimation_REE_expData/metropolis/SW_Estimation_REE_expData_mh2_blck1.mat');
@@ -114,7 +115,7 @@ inf_exp_1_step=[nan(l_diff,1);inf_exp_1_step];
 
 
 ff=figure('Name','inflation expectations 1-step ahead');
-ff.Position = [2067 179 709 632];
+%ff.Position = [2067 179 709 632];
 plotx1(infl_exp_hpd);
 hold on;
 pp=plot(date_tt,4*est_database.cpi_quarterly(end-175+1:end),'--','color','black','lineWidth',0.5)
