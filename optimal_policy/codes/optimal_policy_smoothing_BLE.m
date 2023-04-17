@@ -191,7 +191,7 @@ end
 disp([weight_pi_grid,weight_y_grid,weight_r_grid,optimalPara_SAC'])
 
 T_BLE = table(weight_pi_grid,weight_y_grid,weight_r_grid,optimalPara_SAC');
-T_BLE.Properties.VariableNames{4} = 'Optimal Smoothing';
+T_BLE.Properties.VariableNames{4} = 'Optimal_Smoothing';
 save T_BLE.mat T_BLE;
 
 file_name=['codes/simulations/',opt.model.initial_beliefs,'_gain_',num2str(opt.gain),'_learning','_',num2str(opt.model.learning),'_',opt.shock_type,'_smoothing.mat']

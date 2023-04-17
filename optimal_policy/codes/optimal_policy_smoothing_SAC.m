@@ -191,7 +191,7 @@ end
 disp([weight_pi_grid,weight_y_grid,weight_r_grid,optimalPara_SAC'])
 
 T_SAC = table(weight_pi_grid,weight_y_grid,weight_r_grid,optimalPara_SAC');
-T_SAC.Properties.VariableNames{4} = 'Optimal Smoothing';
+T_SAC.Properties.VariableNames{4} = 'Optimal_Smoothing';
 save T_SAC.mat T_SAC;
 
 

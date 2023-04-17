@@ -191,7 +191,7 @@ end
 disp([weight_pi_grid,weight_y_grid,weight_r_grid,optimalPara_SAC'])
 
 T_MSV = table(weight_pi_grid,weight_y_grid,weight_r_grid,optimalPara_SAC');
-T_MSV.Properties.VariableNames{4} = 'Optimal Smoothing';
+T_MSV.Properties.VariableNames{4} = 'Optimal_Smoothing';
 save T_MSV.mat T_MSV;
 
 file_name=['codes/simulations/',opt.model.initial_beliefs,'_gain_',num2str(opt.gain),'_learning','_',num2str(opt.model.learning),'_',opt.shock_type,'_smoothing.mat']

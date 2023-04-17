@@ -191,7 +191,7 @@ end
 disp([weight_pi_grid,weight_y_grid,weight_r_grid,optimalPara_SAC'])
 
 T_REE = table(weight_pi_grid,weight_y_grid,weight_r_grid,optimalPara_SAC');
-T_REE.Properties.VariableNames{4} = 'Optimal Smoothing';
+T_REE.Properties.VariableNames{4} = 'Optimal_Smoothing';
 save T_REE.mat T_REE;
 
 
