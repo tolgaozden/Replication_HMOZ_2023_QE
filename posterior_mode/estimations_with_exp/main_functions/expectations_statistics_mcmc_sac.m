@@ -187,4 +187,4 @@ ylabel('Annualized q/q %');
 set(gca,'FontSize',15)
 xlabel('Year');
 
-generate_figures('sac_inf_exp_mcmc','figures');
+%generate_figures('sac_inf_exp_mcmc','figures');
