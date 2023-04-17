@@ -173,7 +173,7 @@ corr_inf_exp = corr_inf_exp([mc_lb mc_med mc_ub]);
 %% figures 
 
 ff2=figure('Name','inflation expectations, model-implied vs. empirical');
-ff2.Position = [2067 179 709 632];
+% ff2.Position = [2067 179 709 632];
 % plotx1(infl_data_exp_error,'--','color','blue');
 plotx1((infl_data));
 hold on;
@@ -188,4 +188,4 @@ ylabel('Annualized q/q %');
 set(gca,'FontSize',15)
 xlabel('Year');
 
-generate_figures('msv_inf_exp_mcmc','figures');
+% generate_figures('msv_inf_exp_mcmc','figures');
