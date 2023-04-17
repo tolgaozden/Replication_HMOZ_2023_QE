@@ -112,10 +112,10 @@ disp(corr_exp_error);
 
 
 
-writematrix(corr_inf,...
-    'inf_exp_correlations.xlsx','sheet','ree','range','B2');
+%writematrix(corr_inf,...
+%    'inf_exp_correlations.xlsx','sheet','ree','range','B2');
 
-writematrix(corr_exp_error,...
-    'inf_exp_correlations.xlsx','sheet','ree','range','B3');
+%writematrix(corr_exp_error,...
+%    'inf_exp_correlations.xlsx','sheet','ree','range','B3');
 
 
