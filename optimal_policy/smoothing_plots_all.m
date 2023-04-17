@@ -12,7 +12,7 @@ db_names={'ble_db','sac_db','msv_db','ree_db'};
 plot_names={'BLE','SAC','MSV','REE'};
 
 fig=figure;
-fig.Position=[3000 600 800 600];
+%fig.Position=[3000 600 800 600];
 var_list={'Output','Inflation','r'};
 var_list_plot={' y_t','\pi_t','r_t','E[\pi_t r_{t-1}]'};
 
