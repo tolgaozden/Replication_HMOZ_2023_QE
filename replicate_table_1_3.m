@@ -2,6 +2,8 @@ clear;
 clc;
 addpath(genpath(cd));
 
+warning('off','all');
+
 %inputs: 
 
 %estimation results at the posterior mode. 
