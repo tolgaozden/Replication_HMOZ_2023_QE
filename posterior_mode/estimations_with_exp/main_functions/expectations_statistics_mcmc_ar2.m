@@ -162,13 +162,12 @@ corr_inf_exp_error = corr_inf_exp_error([mc_lb mc_med mc_ub]);
 
 corr_inf_exp = sort(corr_inf_exp);
 corr_inf_exp = corr_inf_exp([mc_lb mc_med mc_ub]);
-
-% 
-% writematrix(corr_inf_exp(2),...
-%     'inf_exp_correlations.xlsx','sheet','ble','range','B2');
-% 
-% writematrix(corr_inf_exp_error(2),...
-%     'inf_exp_correlations.xlsx','sheet','ble','range','C2');
+ 
+ writematrix(corr_inf_exp(2),...
+     'inf_exp_correlations.xlsx','sheet','ble','range','B2');
+ 
+ writematrix(corr_inf_exp_error(2),...
+     'inf_exp_correlations.xlsx','sheet','ble','range','C2');
 %% figures 
 
 ff2=figure('Name','inflation expectations, model-implied vs. empirical');
