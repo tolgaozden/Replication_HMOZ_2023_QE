@@ -1,3 +1,5 @@
+warning('off','all');
+
 addpath(genpath(cd));
 
 figure;
