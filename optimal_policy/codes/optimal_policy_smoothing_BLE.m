@@ -152,7 +152,7 @@ toc
 
 weight_pi_grid = [1    1     1    1 ]';
 weight_y_grid = [0.048 0.048 0.1  0.1 ]';
-weight_r_grid = [0     0.1   0    0.18 ]';
+weight_r_grid = [0     0.1   0    0.1 ]';
 
 optimalPara_SAC = nan(1,length(weight_pi_grid));
 welfare_SAC = nan(length(weight_pi_grid),1);
@@ -162,8 +162,10 @@ welfare_SAC = nan(length(weight_pi_grid),1);
 for ll=1:length(weight_pi_grid)
     
    weight_pi=weight_pi_grid(ll);
-   weight_r=weight_r_grid(ll);
+   weight_r=weight_r_grid(ll);if ll==4;weight_r=weight_r*1.8;end;
    weight_y=weight_y_grid(ll);
+   
+ 
    
    
 
