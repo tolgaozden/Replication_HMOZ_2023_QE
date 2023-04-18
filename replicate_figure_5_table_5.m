@@ -1,7 +1,7 @@
 clear;
 clc;
 
-warning('off','all');
+warning('off','all')
 
 
 % inputs: 
@@ -47,13 +47,26 @@ load T_MSV ;
 load T_REE;
 
 disp('Optimal smoothing under BLE');
+tmp=T_BLE.Variables;
+tmp(:,end) = round(tmp(:,end),2);
+T_BLE.Variables=tmp;
 disp(T_BLE)
 
+
 disp('Optimal smoothing under SAC');
+tmp=T_SAC.Variables;
+tmp(:,end) = round(tmp(:,end),2);
+T_SAC.Variables=tmp;
 disp(T_SAC)
 
 disp('Optimal smoothing under MSV');
+tmp=T_MSV.Variables;
+tmp(:,end) = round(tmp(:,end),2);
+T_MSV.Variables=tmp;
 disp(T_MSV)
 
 disp('Optimal smoothing under REE');
+tmp=T_REE.Variables;
+tmp(:,end) = round(tmp(:,end),2);
+T_REE.Variables=tmp;
 disp(T_REE)
