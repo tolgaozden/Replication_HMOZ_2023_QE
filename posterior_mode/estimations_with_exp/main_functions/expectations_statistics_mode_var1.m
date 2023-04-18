@@ -198,11 +198,11 @@ corr_exp_error = corr(infl_exp_error,exp_errors_empirical1/4);
 disp('correlation between model-implied and empirical inflation expectation errors (1-step ahead):');
 disp(corr_exp_error);
 
-% writematrix(corr_inf,...
-%     'inf_exp_correlations.xlsx','sheet','var1','range','B2');
-% 
-% writematrix(corr_exp_error,...
-%     'inf_exp_correlations.xlsx','sheet','var1','range','B3');
+ writematrix(corr_inf,...
+     'inf_exp_correlations.xlsx','sheet','var1','range','B2');
+ 
+ writematrix(corr_exp_error,...
+     'inf_exp_correlations.xlsx','sheet','var1','range','B3');
 
 
 
