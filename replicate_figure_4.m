@@ -1,5 +1,7 @@
 clear;
 
+warning('off','all');
+
 %inputs: 
 
 %estimation results at the posterior mode for ble and sac models. 
