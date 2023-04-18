@@ -1,6 +1,8 @@
 clear;
 clc;
 
+warning('off','all');
+
 
 % inputs: 
 %estimation results at the posterior mode
