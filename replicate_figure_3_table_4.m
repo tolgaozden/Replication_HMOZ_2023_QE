@@ -2,6 +2,8 @@ clear;
 cd('posterior_mode/estimations_with_exp');
 addpath(genpath(cd));
 
+warning('off','all');
+
 %for each model: run Kalman filter 1000 times with posterior distribution
 %first, then generate HPD bands for inflation expectations.
 
