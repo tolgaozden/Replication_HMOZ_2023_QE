@@ -1,6 +1,8 @@
 clear;
 clc;
 
+warning('off','all');
+
 
 % inputs: 
 %.mat files containing forecasts for each model. The results reported in
