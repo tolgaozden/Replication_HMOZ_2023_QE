@@ -14,7 +14,7 @@ opt.numVar=24;
 opt.sim_length= 5000;
 opt.burn_in = round(0.8*opt.sim_length);
 opt.param_grid1 =  1.4880 ;
-opt.param_grid2= linspace(0.01,0.95,opt.num_grid1);
+opt.param_grid2= linspace(0.005,0.95,opt.num_grid1);
 % opt.gain=0.02;  
 % opt.parameters_path='/home/res/tolo/BLE_150222/estimations_new_data/results/ble_estimation_results.mat';
 opt.parameters_path='results/msv_estimation_results.mat';
@@ -150,9 +150,9 @@ toc
 % weight_y_grid = 0.048*ones(num_policy,1);
 % weight_r_grid = linspace(0,0.5,num_policy)';
 
-weight_pi_grid = [1    1     1    1 ]';
-weight_y_grid = [0.048 0.048 0.1  0.1 ]';
-weight_r_grid = [0     0.1   0    0.1 ]';
+weight_pi_grid = [1    1         1 ]';
+weight_y_grid = [0.048 0.048   0.1 ]';
+weight_r_grid = [0     0.1      0.1 ]';
 
 optimalPara_SAC = nan(1,length(weight_pi_grid));
 welfare_SAC = nan(length(weight_pi_grid),1);
