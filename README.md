@@ -6,7 +6,7 @@ https://www.bankofcanada.ca/2022/09/staff-working-paper-2022-42/
 
 ### Contact information: 
 
-Latest update on 04.04.2023. Contact tozden@bankofcanada.ca for any questions and inquiries. 
+Latest update on 04.04.2023. Contact "tozden@bank-banque-canada.ca" for any questions and inquiries. 
 
 ### Software requirements:
 
